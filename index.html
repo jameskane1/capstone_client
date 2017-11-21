@@ -12,14 +12,63 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <!-- Second navbar for sign in -->
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="navbar-collapse-2">
+            <ul class="nav navbar-nav navbar-right" id='login-buttons'>
+              <li>
+                <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign In</a>
+              </li>
+              <li>
+                <a class="btn btn-default btn-outline btn-circle collapsed" data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse2">Sign Up</a>
+              </li>
+
+            </ul>
+            <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse2">
+              <form class="navbar-form navbar-right form-inline" role="form" id='sign-in'>
+                <div class="form-group">
+                  <label class="sr-only" for="Email">Email</label>
+                  <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="Password">Password</label>
+                  <input type="password" class="form-control" id="Password" placeholder="Password" required />
+                </div>
+                <button type="submit" class="btn btn-success">Sign in</button>
+              </form>
+            </div>
+            <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse3">
+              <form class="navbar-form navbar-right form-inline" role="form" id='sign-in'>
+                <div class="form-group">
+                  <label class="sr-only" for="Email">Email</label>
+                  <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="Password">Password</label>
+                  <input type="password" class="form-control" id="Password" placeholder="Password" required />
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="Password">Confirm Password</label>
+                  <input type="password" class="form-control" id="Password" placeholder="Confirm Password" required />
+                </div>
+                <button type="submit" class="btn btn-success">Sign Up</button>
+              </form>
+            </div>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+      </nav><!-- /.navbar -->
+<h1>We in this bitch</h1>
     </body>
 </html>
