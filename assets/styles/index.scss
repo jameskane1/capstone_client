@@ -19,6 +19,13 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   padding-left: 0%;
 }
 
+#sign-up-form {
+  position: absolute;
+  margin-right: 20%;
+  margin-left: 0%;
+  padding-left: 0%;
+}
+
 .btn.btn-outline { background-color: transparent; }
 
 .navbar-nav.navbar-right .btn:not(.collapsed) {
