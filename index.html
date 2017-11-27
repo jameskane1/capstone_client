@@ -29,12 +29,17 @@
           <div class="collapse navbar-collapse" id="navbar-collapse-2">
             <ul class="nav navbar-nav navbar-right" id='login-buttons'>
               <li>
-                <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign In</a>
+                <a id="sign-in-button" class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign In</a>
               </li>
               <li>
-                <a class="btn btn-default btn-outline btn-circle collapsed" data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse2">Sign Up</a>
+                <a id="sign-up-button" class="btn btn-default btn-outline btn-circle collapsed" data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse2">Sign Up</a>
               </li>
-
+              <li>
+                <button id="logOut-button" class="hide btn btn-default btn-outline btn-circle collapsed"> Sign Out</button>
+              </li>
+              <li>
+                <a id="changePW" class="hide btn btn-default btn-outline btn-circle collapsed" data-toggle="collapse" href="#nav-collapse4" aria-expanded="false" aria-controls="nav-collapse2">Change PW</a>
+              </li>
             </ul>
             <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse2">
               <form class="navbar-form navbar-right form-inline" role="form" id='sign-in-form'>
@@ -66,6 +71,20 @@
                 <button type="submit" class="btn btn-success">Sign Up</button>
               </form>
             </div>
+
+            <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse4">
+            <form class="navbar-form navbar-right form-inline" role="form" id='changePW-form'>
+              <div class="form-group">
+                <label class="sr-only" for="Password">Password</label>
+                <input name="passwords[old]" type="password" class="form-control" id="Password" placeholder="Password Old" required />
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="Password">Confirm Password</label>
+                <input name="passwords[new]" type="password" class="form-control" id="Password" placeholder="Password New" required />
+              </div>
+              <button type="submit" class="btn btn-success">Save</button>
+            </form>
+          </div>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
       </nav><!-- /.navbar -->
