@@ -9,6 +9,9 @@ $(() => {
 
   // signup
   $('#sign-up-form').on('submit', submitValues.onSignUp)
+
+  // signin
+  $('#sign-in-form').on('submit', submitValues.onSignIn)
 })
 
 // use require with a reference to bundle the file and use it in this file
