@@ -7,9 +7,13 @@ const submitValues = require('./events.js')
 $(() => {
   setAPIOrigin(location, config)
 
+  let clicks = 0
+
   // hides sign in when clicking sign up
   $('#sign-up-button').click(function () {
-    const clicks = $(this).data('clicks')
+    $('#nav-collapse2').removeClass('hide')
+    $('#nav-collapse3').removeClass('hide')
+    clicks = $(this).data('clicks')
     if (clicks) {
       $('#sign-in-button').removeClass('hide')
     } else {
@@ -20,13 +24,19 @@ $(() => {
 
   // hides sign-up when selecting sign in
   $('#sign-in-button').click(function () {
-    const clicks = $(this).data('clicks')
+    $('#nav-collapse2').removeClass('hide')
+    $('#nav-collapse3').removeClass('hide')
+    clicks = $(this).data('clicks')
     if (clicks) {
       $('#sign-up-button').removeClass('hide')
     } else {
       $('#sign-up-button').addClass('hide')
     }
     $(this).data('clicks', !clicks)
+  })
+
+  $('#changePW').click(function () {
+    $('#nav-collapse4').removeClass('hide')
   })
 
   // signup
@@ -37,6 +47,11 @@ $(() => {
 
   // changePW
   $('#changePW-form').on('submit', submitValues.onChangePassword)
+
+  // signOut
+  $('#logOut-button').on('click', submitValues.onSignOut)
+  $('#logOut-button').on('click', clicks = 0)
+  console.log('clicks is ', clicks)
 })
 
 // use require with a reference to bundle the file and use it in this file

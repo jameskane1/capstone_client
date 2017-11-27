@@ -26,6 +26,15 @@ const changePasswordFailure = function (error) {
   $('#message').text('Incorrect PW. Please try again', error)
 }
 
+const signOutSuccess = function () {
+  $('#message').text('You have successfully signed out')
+  store.user = null
+}
+
+const signOutFailure = function () {
+  $('#message').text('We were unable to sign you out')
+}
+
 const hideOnSignIn = function () {
   $('#sign-in-button').addClass('hide')
   $('#sign-up-button').addClass('hide')
@@ -34,7 +43,8 @@ const hideOnSignIn = function () {
 }
 
 const hideOnSignOut = function () {
-
+  $('#logOut-button').addClass('hide')
+  $('#changePW').addClass('hide')
 }
 
 const showOnSignIn = function () {
@@ -43,7 +53,11 @@ const showOnSignIn = function () {
 }
 
 const showOnSignOut = function () {
-
+  $('#sign-in-button').removeClass('hide')
+  $('#sign-up-button').removeClass('hide')
+  $('#nav-collapse4').addClass('hide')
+  $('#nav-collapse2').removeClass('hide')
+  $('#nav-collapse3').removeClass('hide')
 }
 
 export {
@@ -56,5 +70,7 @@ export {
   showOnSignIn,
   showOnSignOut,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  signOutSuccess,
+  signOutFailure
 }
