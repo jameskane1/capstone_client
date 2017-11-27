@@ -28,6 +28,7 @@ const onSignIn = function (event) {
     .then(ui.signInSuccess)
     .then(ui.hideOnSignIn)
     .then(ui.showOnSignIn)
+    .then(onPageLoad)
     .then(() => {
       $('#sign-in-form')[0].reset()
     })
@@ -35,6 +36,12 @@ const onSignIn = function (event) {
       $('#sign-up-form')[0].reset()
     })
     .catch(ui.signInFailure)
+}
+
+const onPageLoad = function () {
+  api.weatherData()
+    .then(ui.showWeatherData)
+    .catch(ui.failure)
 }
 
 const onChangePassword = function (event) {
@@ -62,5 +69,6 @@ export {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onPageLoad
 }

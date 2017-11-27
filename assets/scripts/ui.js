@@ -1,5 +1,6 @@
 'use strict'
 const store = require('./store')
+const showPlaysTemplate = require('/Users/n0252077/wdi/projects/capstone_client/capstone client/assets/scripts/templates/fullDashboard.handlebars')
 
 const signUpSuccess = function (data) {
   $('#message').text('you have successfully signed up!')
@@ -12,6 +13,16 @@ const signUpFailure = function (error) {
 const signInSuccess = function (data) {
   $('#message').text('Signed in successfully')
   store.user = data.user
+}
+
+const showWeatherData = function (data) {
+  console.log('data is ', data)
+  const showPlaysHtml = showPlaysTemplate({ weathers: data.weathers })
+  $('#fullDashboard').append(showPlaysHtml)
+}
+
+const failure = function (error) {
+  $('#message').text('Your signup was unsuccessful. Please try again.', error)
 }
 
 const signInFailure = function (error) {
@@ -72,5 +83,7 @@ export {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  showWeatherData,
+  failure
 }

@@ -12,6 +12,15 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
 .nav-collapse>li { float: right; }
 
+.minibox {
+  border: solid;
+  height: inherit;
+  margin: 5px;
+  text-align: center;
+  font-size: 15px;
+  width: 300px;
+}
+
 #sign-in-form {
   position: absolute;
   margin-right: 20%;

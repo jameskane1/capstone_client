@@ -45,9 +45,20 @@ const signOut = function (data) {
   })
 }
 
+const weatherData = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/weathers',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createSignUp,
   createSignIn,
   changePassword,
-  signOut
+  signOut,
+  weatherData
 }
