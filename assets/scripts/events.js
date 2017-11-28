@@ -167,7 +167,21 @@ const onWeatherDelete = function (event) {
     .then(onPageLoadSport)
     .then(onPageLoadCeleb)
     .then(onPageLoadNews)
-    .catch(ui.failure)
+    .catch(ui.deleteWeatherFailure)
+}
+
+const onSportDelete = function (event) {
+  event.preventDefault()
+  api.deleteSport()
+    .then(ui.deleteSportSuccess)
+    .then(() => {
+      $('#fullDashboard').empty()
+    })
+    .then(onPageLoadWeather)
+    .then(onPageLoadSport)
+    .then(onPageLoadCeleb)
+    .then(onPageLoadNews)
+    .catch(ui.deleteSportFailure)
 }
 
 const onWeatherCreate = function (event) {
@@ -197,5 +211,6 @@ export {
   onWeatherCreate,
   onGetSportId,
   onCloseModal,
-  onEditSportSubmit
+  onEditSportSubmit,
+  onSportDelete
 }

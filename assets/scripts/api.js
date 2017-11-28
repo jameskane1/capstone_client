@@ -140,6 +140,17 @@ const deleteWeather = function (data) {
   })
 }
 
+const deleteSport = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/sports/' + store.sport1.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 const createWeather = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/weathers',
@@ -165,5 +176,6 @@ module.exports = {
   deleteWeather,
   createWeather,
   getSportId,
-  editSport
+  editSport,
+  deleteSport
 }

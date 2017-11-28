@@ -128,8 +128,21 @@ const editSportSuccess = function () {
 }
 
 const deleteWeatherSuccess = function () {
-  $('#message').text('You have successfully deleted your weather app')
+  $('#editMessage').text('You have successfully deleted your weather app')
   $('#editWeatherForm').addClass('hide')
+}
+
+const deleteWeatherFailure = function () {
+  $('#editMessage').text('We were unable to delete your weather app. Please try again')
+}
+
+const deleteSportSuccess = function () {
+  $('#editSportMessage').text('You have successfully deleted your Sport app')
+  $('#editSportForm').addClass('hide')
+}
+
+const deleteSportFailure = function () {
+  $('#editSportForm').text('We were unable to delete your sport app. Please try again')
 }
 
 const createWeatherSuccess = function () {
@@ -166,5 +179,8 @@ export {
   createWeatherFailure,
   getWeatherIdFailure,
   getSportIdSuccess,
-  editSportSuccess
+  editSportSuccess,
+  deleteWeatherFailure,
+  deleteSportSuccess,
+  deleteSportFailure
 }

@@ -65,6 +65,8 @@ $(() => {
 
   // delte Weather Widget
   $('#weatherDelete').on('click', submitValues.onWeatherDelete)
+  //  sport delete
+  $('#sportDelete').on('click', submitValues.onSportDelete)
 
   // create Weather Widget
   $('#createWeatherForm').on('submit', submitValues.onWeatherCreate)
