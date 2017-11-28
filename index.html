@@ -88,6 +88,34 @@
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
       </nav><!-- /.navbar -->
+
+
+      <nav class="navbar navbar-default">
+        <div class="container">
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class='postLoginHeader'>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <button data-toggle="modal" data-target="#createWeatherModal" class='btn' id='createWeather'>Create Weather Widget</button>
+                </li>
+              <li>
+                <button class='btn'id='createSport'>Create Sport Widget</button>
+              </li>
+              <li>
+                <button class='btn' id='createCeleb'>Create Celeb Widget</button>
+              </li>
+              <li>
+                <button class='btn' id='createNews'>Create News Widget</button>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+      </nav><!-- /.navbar -->
+
+
+
+
 <h1>We in this bitch</h1>
   <h5 id='message'></h5>
 
@@ -133,6 +161,35 @@
       <section id="editMessage"></section>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary closeWeather" data-dismiss="modal" id="getWeatherIdClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- create Weather Modal -->
+<div class="modal fade" id="createWeatherModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+      </div>
+      <div class="modal-body" id='fullCreateWeatherForm'>
+        <form id="createWeatherForm">
+          <fieldset>
+            <legend>Enter the Data for your new Weather Widget Below</legend>
+            <input type="text" name="weather[city]" placeholder="Enter City">
+            <input type="text" name="weather[zip]" placeholder="Enter Zip">
+            <input type="text" name="weather[google]" placeholder="Enter Google">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <section id="editWeatherMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeWeather" data-dismiss="modal" id="createWeatherClose">Close</button>
       </div>
     </div>
   </div>

@@ -118,6 +118,17 @@ const deleteWeather = function (data) {
   })
 }
 
+const createWeather = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/weathers',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 module.exports = {
   createSignUp,
   createSignIn,
@@ -129,5 +140,6 @@ module.exports = {
   newsData,
   editWeather,
   getWeatherId,
-  deleteWeather
+  deleteWeather,
+  createWeather
 }

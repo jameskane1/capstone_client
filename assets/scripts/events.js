@@ -134,6 +134,21 @@ const onWeatherDelete = function (event) {
     .catch(ui.failure)
 }
 
+const onWeatherCreate = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.createWeather(data)
+    .then(ui.createWeatherSuccess)
+    .then(() => {
+      $('#fullDashboard').empty()
+    })
+    .then(onPageLoadWeather)
+    .then(onPageLoadSport)
+    .then(onPageLoadCeleb)
+    .then(onPageLoadNews)
+    .catch(ui.failure)
+}
+
 export {
   onSignUp,
   onSignIn,
@@ -142,5 +157,6 @@ export {
   onPageLoadWeather,
   onEditWeatherSubmit,
   onGetWeatherId,
-  onWeatherDelete
+  onWeatherDelete,
+  onWeatherCreate
 }

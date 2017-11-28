@@ -60,6 +60,9 @@ $(() => {
 
   // delte Weather Widget
   $('#weatherDelete').on('click', submitValues.onWeatherDelete)
+
+  // create Weather Widget
+  $('#createWeatherForm').on('submit', submitValues.onWeatherCreate)
 })
 
 // use require with a reference to bundle the file and use it in this file
