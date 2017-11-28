@@ -52,6 +52,11 @@ $(() => {
   $('#logOut-button').on('click', submitValues.onSignOut)
   $('#logOut-button').on('click', clicks = 0)
   console.log('clicks is ', clicks)
+
+  // get Weather ID
+  $('#getWeatherId').on('submit', submitValues.onGetWeatherId)
+  // edit weather submit
+  $('#editWeatherSubmit').on('submit', submitValues.onEditWeatherSubmit)
 })
 
 // use require with a reference to bundle the file and use it in this file

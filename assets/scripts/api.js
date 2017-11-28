@@ -85,6 +85,28 @@ const newsData = function () {
   })
 }
 
+const getWeatherId = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/weathers/' + data.weather.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const editWeather = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/weathers/' + store.weathers.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 module.exports = {
   createSignUp,
   createSignIn,
@@ -93,5 +115,7 @@ module.exports = {
   weatherData,
   sportData,
   celebData,
-  newsData
+  newsData,
+  editWeather,
+  getWeatherId
 }

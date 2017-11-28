@@ -98,5 +98,44 @@
       </div>
 </div>
 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+      </div>
+      <div class="modal-body" id='getWeatherIdForm'>
+        <form id="getWeatherId">
+          <fieldset>
+            <legend>Select the ID for Weather Widget</legend>
+            <input type="text" name="weather[id]" placeholder="Enter ID">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-body hide" id='editWeatherForm'>
+        <form id="getWeatherId">
+          <fieldset>
+            <legend>Please enter the new data for your Weather Widget</legend>
+            <input type="text" name="weather[city]" id="editWeatherCity" placeholder="Enter City">
+            <input type="integer" name="weather[zip]" id="editWeatherZip" placeholder="Enter Zip">
+            <input type="text" name="weather[google]" id="editWeatherGoogle" placeholder="Enter Google Search">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <section id="editMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="getWeatherIdClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     </body>
 </html>

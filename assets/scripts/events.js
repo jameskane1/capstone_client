@@ -2,6 +2,7 @@
 const getFormFields = require('./../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./store')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -86,10 +87,31 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onGetWeatherId = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.getWeatherId(data)
+    .then(ui.getWeatherIdSuccess)
+    // .then(() => {
+    //   $('#getWeatherId')[0].reset()
+    // })
+    .catch(ui.failure)
+}
+
+const onEditWeatherSubmit = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.editWeather(data)
+    .then(ui.editWeatherSuccess)
+    .catch(ui.failure)
+}
+
 export {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
-  onPageLoadWeather
+  onPageLoadWeather,
+  onEditWeatherSubmit,
+  onGetWeatherId
 }

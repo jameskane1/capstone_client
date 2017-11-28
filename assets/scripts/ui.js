@@ -20,6 +20,8 @@ const signInSuccess = function (data) {
 
 const showWeatherData = function (data) {
   const showPlaysHtml = showWeathersTemplate({ weathers: data.weathers })
+  store.weathers = data.weathers
+  console.log('sore.weathers is ', store.weathers)
   $('#fullDashboard').append(showPlaysHtml)
 }
 
@@ -88,6 +90,20 @@ const showOnSignOut = function () {
   $('#nav-collapse3').removeClass('hide')
 }
 
+const getWeatherIdSuccess = function (data) {
+  store.weather1 = data.weather
+  $('#getWeatherIdForm').addClass('hide')
+  $('#editWeatherForm').removeClass('hide')
+  $('#editWeatherCity').val(store.weather1.city)
+  $('#editWeatherZip').val(store.weather1.zip)
+  $('#editWeatherGoogle').val(store.weather1.google)
+  $('#editMessage').text('Your input play has been selected to be edited')
+}
+
+const editWeatherSuccess = function () {
+  $('#editMessage').text('You have successfully updated your weather app')
+}
+
 export {
   signUpFailure,
   signUpSuccess,
@@ -105,5 +121,7 @@ export {
   failure,
   showSportData,
   showCelebData,
-  showNewsData
+  showNewsData,
+  editWeatherSuccess,
+  getWeatherIdSuccess
 }
