@@ -104,6 +104,11 @@ const editWeatherSuccess = function () {
   $('#editMessage').text('You have successfully updated your weather app')
 }
 
+const deleteWeatherSuccess = function () {
+  $('#editMessage').text('You have successfully deleted your weather app')
+  $('#editWeatherForm').addClass('hide')
+}
+
 export {
   signUpFailure,
   signUpSuccess,
@@ -123,5 +128,6 @@ export {
   showCelebData,
   showNewsData,
   editWeatherSuccess,
-  getWeatherIdSuccess
+  getWeatherIdSuccess,
+  deleteWeatherSuccess
 }

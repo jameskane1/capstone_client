@@ -58,8 +58,8 @@ $(() => {
   // edit weather submit
   $('#editWeatherSubmit').on('submit', submitValues.onEditWeatherSubmit)
 
-  // releaad widgets after edit/Delete
-  // $('#getWeatherIdClose').on('click', submitValues.onGetWeatherId)
+  // delte Weather Widget
+  $('#weatherDelete').on('click', submitValues.onWeatherDelete)
 })
 
 // use require with a reference to bundle the file and use it in this file

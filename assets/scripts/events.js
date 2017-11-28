@@ -120,6 +120,20 @@ const onEditWeatherSubmit = function (event) {
     .catch(ui.failure)
 }
 
+const onWeatherDelete = function (event) {
+  event.preventDefault()
+  api.deleteWeather()
+    .then(ui.deleteWeatherSuccess)
+    .then(() => {
+      $('#fullDashboard').empty()
+    })
+    .then(onPageLoadWeather)
+    .then(onPageLoadSport)
+    .then(onPageLoadCeleb)
+    .then(onPageLoadNews)
+    .catch(ui.failure)
+}
+
 export {
   onSignUp,
   onSignIn,
@@ -127,6 +141,6 @@ export {
   onSignOut,
   onPageLoadWeather,
   onEditWeatherSubmit,
-  onGetWeatherId
-  // onNewPageLoad
+  onGetWeatherId,
+  onWeatherDelete
 }
