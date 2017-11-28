@@ -134,7 +134,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
       </div>
-      <div class="modal-body" id='getWeatherIdForm'>
+      <div class="modal-body getWeatherIdForm" id='getWeatherIdForm'>
         <form id="getWeatherId">
           <fieldset>
             <legend>Select the ID for Weather Widget</legend>
@@ -144,7 +144,7 @@
           </fieldset>
         </form>
       </div>
-      <div class="modal-body hide" id='editWeatherForm'>
+      <div class="modal-body hide editWeatherForm" id='editWeatherForm'>
         <form id="editWeatherSubmit">
           <fieldset>
             <legend>Please enter the new data for your Weather Widget</legend>
@@ -189,6 +189,47 @@
       <section id="editWeatherMessage"></section>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary closeWeather" data-dismiss="modal" id="createWeatherClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- sport Edit/Delete Modal -->
+
+<div class="modal fade" id="sportsEditModal" tabindex="-1" role="dialog" aria-labelledby="Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close closeSport" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+      </div>
+      <div class="modal-body getSportIdForm" id='getSportIdForm'>
+        <form id="getSportId">
+          <fieldset>
+            <legend>Select the ID for Sport Widget</legend>
+            <input class='idSeltor' type="text" name="sport[id]" placeholder="Enter ID" required>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-body hide editSportForm" id='editSportForm'>
+        <form id="editSportSubmit">
+          <fieldset>
+            <legend>Please enter the new data for your Sport Widget</legend>
+            <input class='editSportVal' type="text" name="sport[team]" id="editSportTeam" placeholder="Enter City">
+            <input class='editSportVal' type="text" name="sport[league]" id="editSportLeague" placeholder="Enter League">
+            <input class='editSportVal' type="text" name="sport[google]" id="editSportGoogle" placeholder="Enter Google Search">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+        <button class="btn btn-primary" id='sportDelete'>Delete this Widget</button>
+      </div>
+      <section id="editSportMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeSport" data-dismiss="modal" id="getSportIdClose">Close</button>
       </div>
     </div>
   </div>

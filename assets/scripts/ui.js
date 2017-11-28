@@ -104,16 +104,27 @@ const getWeatherIdSuccess = function (data) {
   $('#editMessage').text('Your input play has been selected to be edited')
 }
 
+const getSportIdSuccess = function (data) {
+  store.sport1 = data.sport
+  console.log('thisis sport 1 ', store.sport1)
+  $('#getSportIdForm').addClass('hide')
+  $('#editSportForm').removeClass('hide')
+  $('#editSportTeam').val(store.sport1.team)
+  $('#editSportLeague').val(store.sport1.league)
+  $('#editSportGoogle').val(store.sport1.google)
+  $('#editSportMessage').text('Your input Sport Widget has been selected to be edited')
+}
+
 const getWeatherIdFailure = function (error) {
   $('#editMessage').text('We were unable to locate your widget ID. Please try again.', error)
 }
 
 const editWeatherSuccess = function () {
-  $('#editMessage').text('You have successfully updated your weather app')
+  $('#message').text('You have successfully updated your weather app')
 }
 
 const deleteWeatherSuccess = function () {
-  $('#editMessage').text('You have successfully deleted your weather app')
+  $('#message').text('You have successfully deleted your weather app')
   $('#editWeatherForm').addClass('hide')
 }
 
@@ -149,5 +160,6 @@ export {
   deleteWeatherSuccess,
   createWeatherSuccess,
   createWeatherFailure,
-  getWeatherIdFailure
+  getWeatherIdFailure,
+  getSportIdSuccess
 }
