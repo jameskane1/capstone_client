@@ -1,0 +1,10 @@
+{{#each sports as |sport|}}
+
+ <!-- Developers, why are we using data-id and not just id? -->
+<div class="col-xs-8 col-md-8 minibox">
+  <h5>Category: Sports</h5>
+  <h5 data-id="{{sport.team}}"> <small>Team: {{sport.team}}</small></h5>
+  <h5 data-id="{{sport.league}}"> <small>League: {{sport.league}}</small></h5>
+  <a data-id="{{sport.google}}" href="{{sport.google}}"> <small>Google Search</small></a>
+</div>
+{{/each}}

@@ -1,0 +1,11 @@
+{{#each celebs as |celeb|}}
+
+ <!-- Developers, why are we using data-id and not just id? -->
+<div class="col-xs-8 col-md-8 minibox">
+  <h5>Category: Pop Culture</h5>
+  <h5 data-id="{{celeb.name}}"> <small>Name: {{celeb.name}}</small></h5>
+  <h5 data-id="{{celeb.age}}"> <small>Age: {{celeb.age}}</small></h5>
+  <h5 data-id="{{celeb.occupation}}"> <small>Occupation: {{celeb.occupation}}</small></h5>
+  <a data-id="{{celeb.google}}" href="{{celeb.google}}"> <small>Google Search</small></a>
+</div>
+{{/each}}

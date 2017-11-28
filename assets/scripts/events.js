@@ -28,7 +28,10 @@ const onSignIn = function (event) {
     .then(ui.signInSuccess)
     .then(ui.hideOnSignIn)
     .then(ui.showOnSignIn)
-    .then(onPageLoad)
+    .then(onPageLoadWeather)
+    .then(onPageLoadSport)
+    .then(onPageLoadCeleb)
+    .then(onPageLoadNews)
     .then(() => {
       $('#sign-in-form')[0].reset()
     })
@@ -38,9 +41,27 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
 }
 
-const onPageLoad = function () {
+const onPageLoadWeather = function () {
   api.weatherData()
     .then(ui.showWeatherData)
+    .catch(ui.failure)
+}
+
+const onPageLoadSport = function () {
+  api.sportData()
+    .then(ui.showSportData)
+    .catch(ui.failure)
+}
+
+const onPageLoadCeleb = function () {
+  api.celebData()
+    .then(ui.showCelebData)
+    .catch(ui.failure)
+}
+
+const onPageLoadNews = function () {
+  api.newsData()
+    .then(ui.showNewsData)
     .catch(ui.failure)
 }
 
@@ -70,5 +91,5 @@ export {
   onSignIn,
   onChangePassword,
   onSignOut,
-  onPageLoad
+  onPageLoadWeather
 }

@@ -1,6 +1,9 @@
 'use strict'
 const store = require('./store')
-const showPlaysTemplate = require('/Users/n0252077/wdi/projects/capstone_client/capstone client/assets/scripts/templates/fullDashboard.handlebars')
+const showWeathersTemplate = require('/Users/n0252077/wdi/projects/capstone_client/capstone client/assets/scripts/templates/fullDashboard.handlebars')
+const showSportsTemplate = require('/Users/n0252077/wdi/projects/capstone_client/capstone client/assets/scripts/templates/sportDashboard.handlebars')
+const showCelebTemplate = require('/Users/n0252077/wdi/projects/capstone_client/capstone client/assets/scripts/templates/celebDashboard.handlebars')
+const showNewsTemplate = require('/Users/n0252077/wdi/projects/capstone_client/capstone client/assets/scripts/templates/news.handlebars')
 
 const signUpSuccess = function (data) {
   $('#message').text('you have successfully signed up!')
@@ -16,9 +19,23 @@ const signInSuccess = function (data) {
 }
 
 const showWeatherData = function (data) {
-  console.log('data is ', data)
-  const showPlaysHtml = showPlaysTemplate({ weathers: data.weathers })
+  const showPlaysHtml = showWeathersTemplate({ weathers: data.weathers })
   $('#fullDashboard').append(showPlaysHtml)
+}
+
+const showSportData = function (data) {
+  const showSportHtml = showSportsTemplate({ sports: data.sports })
+  $('#fullDashboard').append(showSportHtml)
+}
+
+const showCelebData = function (data) {
+  const showCelebHtml = showCelebTemplate({ celebs: data.celebs })
+  $('#fullDashboard').append(showCelebHtml)
+}
+
+const showNewsData = function (data) {
+  const showNewsHtml = showNewsTemplate({ news_papers: data.news_papers })
+  $('#fullDashboard').append(showNewsHtml)
 }
 
 const failure = function (error) {
@@ -85,5 +102,8 @@ export {
   signOutSuccess,
   signOutFailure,
   showWeatherData,
-  failure
+  failure,
+  showSportData,
+  showCelebData,
+  showNewsData
 }

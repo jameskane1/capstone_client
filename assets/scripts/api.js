@@ -55,10 +55,43 @@ const weatherData = function () {
   })
 }
 
+const sportData = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/sports',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const celebData = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/celebs',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const newsData = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/news_papers',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createSignUp,
   createSignIn,
   changePassword,
   signOut,
-  weatherData
+  weatherData,
+  sportData,
+  celebData,
+  newsData
 }
