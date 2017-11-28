@@ -61,6 +61,7 @@ $(() => {
   // edit weather submit
   $('#editWeatherSubmit').on('submit', submitValues.onEditWeatherSubmit)
   // edit sport submit
+  $('#editSportSubmit').on('submit', submitValues.onEditSportSubmit)
 
   // delte Weather Widget
   $('#weatherDelete').on('click', submitValues.onWeatherDelete)
@@ -69,6 +70,7 @@ $(() => {
   $('#createWeatherForm').on('submit', submitValues.onWeatherCreate)
 
   // create Weather field closeWeather
+  // might not need???
   $('#createWeather').click(function () {
     $('.createWeatherEmpty').val('')
     $('#editWeatherMessage').empty()
@@ -76,7 +78,7 @@ $(() => {
   })
 
   // close modal clearing
-  $('.closeWeather').on('click', submitValues.onCloseModal)
+  $('.closeModal').on('click', submitValues.onCloseModal)
 })
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')

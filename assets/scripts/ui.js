@@ -120,7 +120,11 @@ const getWeatherIdFailure = function (error) {
 }
 
 const editWeatherSuccess = function () {
-  $('#message').text('You have successfully updated your weather app')
+  $('#editMessage').text('You have successfully updated your weather app')
+}
+
+const editSportSuccess = function () {
+  $('#editSportMessage').text('You have successfully updated your Sport app')
 }
 
 const deleteWeatherSuccess = function () {
@@ -161,5 +165,6 @@ export {
   createWeatherSuccess,
   createWeatherFailure,
   getWeatherIdFailure,
-  getSportIdSuccess
+  getSportIdSuccess,
+  editSportSuccess
 }

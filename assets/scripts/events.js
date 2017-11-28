@@ -130,11 +130,30 @@ const onEditWeatherSubmit = function (event) {
     .then(onPageLoadNews)
     .catch(ui.failure)
 }
+
+const onEditSportSubmit = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.editSport(data)
+    .then(ui.editSportSuccess)
+    .then(() => {
+      $('#fullDashboard').empty()
+    })
+    .then(onPageLoadWeather)
+    .then(onPageLoadSport)
+    .then(onPageLoadCeleb)
+    .then(onPageLoadNews)
+    .catch(ui.editSportFailure)
+}
+
 const onCloseModal = function () {
   $('.idSeltor').val('')
   $('#editMessage').empty()
+  $('#editSportMessage').empty()
   $('.getWeatherIdForm').removeClass('hide')
   $('.editWeatherForm').addClass('hide')
+  $('.getSportIdForm').removeClass('hide')
+  $('.editSportForm').addClass('hide')
 }
 
 const onWeatherDelete = function (event) {
@@ -177,5 +196,6 @@ export {
   onWeatherDelete,
   onWeatherCreate,
   onGetSportId,
-  onCloseModal
+  onCloseModal,
+  onEditSportSubmit
 }
