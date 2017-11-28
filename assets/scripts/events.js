@@ -2,7 +2,6 @@
 const getFormFields = require('./../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-const store = require('./store')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -41,6 +40,14 @@ const onSignIn = function (event) {
     })
     .catch(ui.signInFailure)
 }
+
+// const onNewPageLoad = function (event) {
+//   event.preventDefault()
+//     .then(onPageLoadWeather)
+//     .then(onPageLoadSport)
+//     .then(onPageLoadCeleb)
+//     .then(onPageLoadNews)
+// }
 
 const onPageLoadWeather = function () {
   api.weatherData()
@@ -103,6 +110,13 @@ const onEditWeatherSubmit = function (event) {
   event.preventDefault()
   api.editWeather(data)
     .then(ui.editWeatherSuccess)
+    .then(() => {
+      $('#fullDashboard').empty()
+    })
+    .then(onPageLoadWeather)
+    .then(onPageLoadSport)
+    .then(onPageLoadCeleb)
+    .then(onPageLoadNews)
     .catch(ui.failure)
 }
 
@@ -114,4 +128,5 @@ export {
   onPageLoadWeather,
   onEditWeatherSubmit,
   onGetWeatherId
+  // onNewPageLoad
 }

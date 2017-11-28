@@ -98,7 +98,7 @@ const getWeatherId = function (data) {
 
 const editWeather = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/weathers/' + store.weathers.id,
+    url: config.apiOrigin + '/weathers/' + store.weather1.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

@@ -103,7 +103,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close closeWeather" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
       </div>
@@ -118,7 +118,7 @@
         </form>
       </div>
       <div class="modal-body hide" id='editWeatherForm'>
-        <form id="getWeatherId">
+        <form id="editWeatherSubmit">
           <fieldset>
             <legend>Please enter the new data for your Weather Widget</legend>
             <input type="text" name="weather[city]" id="editWeatherCity" placeholder="Enter City">
@@ -131,7 +131,7 @@
       </div>
       <section id="editMessage"></section>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="getWeatherIdClose">Close</button>
+        <button type="button" class="btn btn-secondary closeWeather" data-dismiss="modal" id="getWeatherIdClose">Close</button>
       </div>
     </div>
   </div>
