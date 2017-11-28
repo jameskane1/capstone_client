@@ -75,11 +75,15 @@ const hideOnSignIn = function () {
 const hideOnSignOut = function () {
   $('#logOut-button').addClass('hide')
   $('#changePW').addClass('hide')
+  $('#createNavBar').addClass('hide')
+  $('#dash').addClass('hide')
 }
 
 const showOnSignIn = function () {
   $('#logOut-button').removeClass('hide')
   $('#changePW').removeClass('hide')
+  $('#createNavBar').removeClass('hide')
+  $('#dash').removeClass('hide')
 }
 
 const showOnSignOut = function () {
@@ -100,6 +104,10 @@ const getWeatherIdSuccess = function (data) {
   $('#editMessage').text('Your input play has been selected to be edited')
 }
 
+const getWeatherIdFailure = function (error) {
+  $('#editMessage').text('We were unable to locate your widget ID. Please try again.', error)
+}
+
 const editWeatherSuccess = function () {
   $('#editMessage').text('You have successfully updated your weather app')
 }
@@ -112,6 +120,10 @@ const deleteWeatherSuccess = function () {
 const createWeatherSuccess = function () {
   $('#editWeatherMessage').text('You have successfully created your weather app')
   $('#fullCreateWeatherForm').addClass('hide')
+}
+
+const createWeatherFailure = function (error) {
+  $('#editWeatherMessage').text('We were unable to create your widget. Please try again.', error)
 }
 
 export {
@@ -135,5 +147,7 @@ export {
   editWeatherSuccess,
   getWeatherIdSuccess,
   deleteWeatherSuccess,
-  createWeatherSuccess
+  createWeatherSuccess,
+  createWeatherFailure,
+  getWeatherIdFailure
 }

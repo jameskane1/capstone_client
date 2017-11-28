@@ -89,11 +89,10 @@
         </div><!-- /.container -->
       </nav><!-- /.navbar -->
 
-
-      <nav class="navbar navbar-default">
+<!-- Nav bar for creating Widgets -->
+      <nav class="navbar navbar-default hide" id='createNavBar'>
         <div class="container">
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
           <div class='postLoginHeader'>
             <ul class="nav navbar-nav navbar-right">
               <li>
@@ -120,7 +119,7 @@
   <h5 id='message'></h5>
 
 <!-- post logi handlebars area -->
-<div class='' id='previous'>
+<div class='hide' id='dash'>
       <div class="row" >
         <div class="col-xs-12 col-md-12 bigbox" id='fullDashboard'></div>
       </div>
@@ -139,7 +138,7 @@
         <form id="getWeatherId">
           <fieldset>
             <legend>Select the ID for Weather Widget</legend>
-            <input type="text" name="weather[id]" placeholder="Enter ID">
+            <input class='idSeltor' type="text" name="weather[id]" placeholder="Enter ID" required>
             <button type="submit" class="btn btn-primary">Submit</button>
             <br>
           </fieldset>
@@ -149,9 +148,9 @@
         <form id="editWeatherSubmit">
           <fieldset>
             <legend>Please enter the new data for your Weather Widget</legend>
-            <input type="text" name="weather[city]" id="editWeatherCity" placeholder="Enter City">
-            <input type="integer" name="weather[zip]" id="editWeatherZip" placeholder="Enter Zip">
-            <input type="text" name="weather[google]" id="editWeatherGoogle" placeholder="Enter Google Search">
+            <input class='editWeatherVal' type="text" name="weather[city]" id="editWeatherCity" placeholder="Enter City">
+            <input class='editWeatherVal' type="number" name="weather[zip]" id="editWeatherZip" placeholder="Enter Zip">
+            <input class='editWeatherVal' type="text" name="weather[google]" id="editWeatherGoogle" placeholder="Enter Google Search">
             <button type="submit" class="btn btn-primary">Submit</button>
             <br>
           </fieldset>
@@ -179,9 +178,9 @@
         <form id="createWeatherForm">
           <fieldset>
             <legend>Enter the Data for your new Weather Widget Below</legend>
-            <input type="text" name="weather[city]" placeholder="Enter City">
-            <input type="text" name="weather[zip]" placeholder="Enter Zip">
-            <input type="text" name="weather[google]" placeholder="Enter Google">
+            <input class='createWeatherEmpty' type="text" name="weather[city]" placeholder="Enter City" required>
+            <input class='createWeatherEmpty' type="number" name="weather[zip]" placeholder="Enter Zip" required>
+            <input class='createWeatherEmpty' type="text" name="weather[google]" placeholder="Enter Google" required>
             <button type="submit" class="btn btn-primary">Submit</button>
             <br>
           </fieldset>

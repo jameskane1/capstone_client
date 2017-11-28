@@ -63,8 +63,14 @@ $(() => {
 
   // create Weather Widget
   $('#createWeatherForm').on('submit', submitValues.onWeatherCreate)
-})
 
+  // create Weather field closeWeather
+  $('#createWeather').click(function () {
+    $('.createWeatherEmpty').val('')
+    $('#editWeatherMessage').empty()
+    $('#fullCreateWeatherForm').removeClass('hide')
+  })
+})
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 

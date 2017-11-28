@@ -33,6 +33,14 @@ const onSignIn = function (event) {
     .then(onPageLoadCeleb)
     .then(onPageLoadNews)
     .then(() => {
+      $('.weatherEdit').click(function () {
+        $('.idSeltor').val('')
+        $('#editMessage').empty()
+        $('#getWeatherIdForm').removeClass('hide')
+        $('#editWeatherForm').addClass('hide')
+      })
+    })
+    .then(() => {
       $('#sign-in-form')[0].reset()
     })
     .then(() => {
@@ -40,14 +48,6 @@ const onSignIn = function (event) {
     })
     .catch(ui.signInFailure)
 }
-
-// const onNewPageLoad = function (event) {
-//   event.preventDefault()
-//     .then(onPageLoadWeather)
-//     .then(onPageLoadSport)
-//     .then(onPageLoadCeleb)
-//     .then(onPageLoadNews)
-// }
 
 const onPageLoadWeather = function () {
   api.weatherData()
@@ -91,6 +91,12 @@ const onSignOut = function (event) {
     .then(ui.signOutSuccess)
     .then(ui.hideOnSignOut)
     .then(ui.showOnSignOut)
+    .then(() => {
+      $('#fullDashboard').empty()
+    })
+    .then(() => {
+      $('.createWeatherEmpty').val('')
+    })
     .catch(ui.signOutFailure)
 }
 
@@ -102,7 +108,7 @@ const onGetWeatherId = function (event) {
     // .then(() => {
     //   $('#getWeatherId')[0].reset()
     // })
-    .catch(ui.failure)
+    .catch(ui.getWeatherIdFailure)
 }
 
 const onEditWeatherSubmit = function (event) {
@@ -117,6 +123,14 @@ const onEditWeatherSubmit = function (event) {
     .then(onPageLoadSport)
     .then(onPageLoadCeleb)
     .then(onPageLoadNews)
+    .then(() => {
+      $('.weatherEdit').click(function () {
+        $('.idSeltor').val('')
+        $('#editMessage').empty()
+        $('#getWeatherIdForm').removeClass('hide')
+        $('#editWeatherForm').addClass('hide')
+      })
+    })
     .catch(ui.failure)
 }
 
@@ -131,6 +145,14 @@ const onWeatherDelete = function (event) {
     .then(onPageLoadSport)
     .then(onPageLoadCeleb)
     .then(onPageLoadNews)
+    .then(() => {
+      $('.weatherEdit').click(function () {
+        $('.idSeltor').val('')
+        $('#editMessage').empty()
+        $('#getWeatherIdForm').removeClass('hide')
+        $('#editWeatherForm').addClass('hide')
+      })
+    })
     .catch(ui.failure)
 }
 
@@ -146,7 +168,15 @@ const onWeatherCreate = function (event) {
     .then(onPageLoadSport)
     .then(onPageLoadCeleb)
     .then(onPageLoadNews)
-    .catch(ui.failure)
+    .then(() => {
+      $('.weatherEdit').click(function () {
+        $('.idSeltor').val('')
+        $('#editMessage').empty()
+        $('#getWeatherIdForm').removeClass('hide')
+        $('#editWeatherForm').addClass('hide')
+      })
+    })
+    .catch(ui.createWeatherFailure)
 }
 
 export {
