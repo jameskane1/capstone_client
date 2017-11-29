@@ -58,15 +58,23 @@ $(() => {
   // get Sport ID
   $('#getSportId').on('submit', submitValues.onGetSportId)
 
+  // get Celeb ID
+  $('#getCelebId').on('submit', submitValues.onGetCelebId)
+
   // edit weather submit
   $('#editWeatherSubmit').on('submit', submitValues.onEditWeatherSubmit)
   // edit sport submit
   $('#editSportSubmit').on('submit', submitValues.onEditSportSubmit)
 
+  // edit Celeb submit
+  $('#editCelebSubmit').on('submit', submitValues.onEditCelebSubmit)
+
   // delte Weather Widget
   $('#weatherDelete').on('click', submitValues.onWeatherDelete)
   //  sport delete
   $('#sportDelete').on('click', submitValues.onSportDelete)
+  //  Celeb delete
+  $('#celebDelete').on('click', submitValues.onCelebDelete)
 
   // create Weather Widget
   $('#createWeatherForm').on('submit', submitValues.onWeatherCreate)
@@ -74,8 +82,10 @@ $(() => {
   // create Sport Widget
   $('#createSportForm').on('submit', submitValues.onSportCreate)
 
+  // create Celeb Widget
+  $('#createCelebForm').on('submit', submitValues.onCelebCreate)
+
   // create Weather field closeWeather
-  // might not need???
   $('#createWeather').click(function () {
     $('.createWeatherEmpty').val('')
     $('#editWeatherMessage').empty()
@@ -87,6 +97,13 @@ $(() => {
     $('.createSportEmpty').val('')
     $('#createSportMessage').empty()
     $('#fullCreateSportForm').removeClass('hide')
+  })
+
+  // create celeb field clear
+  $('#createCeleb').click(function () {
+    $('.createCelebEmpty').val('')
+    $('#createCelebMessage').empty()
+    $('#fullCreateCelebForm').removeClass('hide')
   })
 
   // close modal clearing

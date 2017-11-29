@@ -116,6 +116,14 @@ const onGetSportId = function (event) {
     .catch(ui.getSportIdFailure)
 }
 
+const onGetCelebId = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.getCelebId(data)
+    .then(ui.getCelebIdSuccess)
+    .catch(ui.getCelebIdFailure)
+}
+
 const onEditWeatherSubmit = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
@@ -128,7 +136,7 @@ const onEditWeatherSubmit = function (event) {
     .then(onPageLoadSport)
     .then(onPageLoadCeleb)
     .then(onPageLoadNews)
-    .catch(ui.failure)
+    .catch(ui.editWeatherFailure)
 }
 
 const onEditSportSubmit = function (event) {
@@ -146,14 +154,35 @@ const onEditSportSubmit = function (event) {
     .catch(ui.editSportFailure)
 }
 
+const onEditCelebSubmit = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.editCeleb(data)
+    .then(ui.editCelebSuccess)
+    .then(() => {
+      $('#fullDashboard').empty()
+    })
+    .then(onPageLoadWeather)
+    .then(onPageLoadSport)
+    .then(onPageLoadCeleb)
+    .then(onPageLoadNews)
+    .catch(ui.editCelebFailure)
+}
+
 const onCloseModal = function () {
   $('.idSeltor').val('')
   $('#editMessage').empty()
   $('#editSportMessage').empty()
+  $('#editCelebMessage').empty()
+  $('#editNewsMessage').empty()
   $('.getWeatherIdForm').removeClass('hide')
   $('.editWeatherForm').addClass('hide')
   $('.getSportIdForm').removeClass('hide')
   $('.editSportForm').addClass('hide')
+  $('.getCelebIdForm').removeClass('hide')
+  $('.editCelebForm').addClass('hide')
+  $('.getNewsIdForm').removeClass('hide')
+  $('.editNewsForm').addClass('hide')
 }
 
 const onWeatherDelete = function (event) {
@@ -182,6 +211,20 @@ const onSportDelete = function (event) {
     .then(onPageLoadCeleb)
     .then(onPageLoadNews)
     .catch(ui.deleteSportFailure)
+}
+
+const onCelebDelete = function (event) {
+  event.preventDefault()
+  api.deleteCeleb()
+    .then(ui.deleteCelebSuccess)
+    .then(() => {
+      $('#fullDashboard').empty()
+    })
+    .then(onPageLoadWeather)
+    .then(onPageLoadSport)
+    .then(onPageLoadCeleb)
+    .then(onPageLoadNews)
+    .catch(ui.deleteCelebFailure)
 }
 
 const onWeatherCreate = function (event) {
@@ -214,6 +257,21 @@ const onSportCreate = function (event) {
     .catch(ui.createSportFailure)
 }
 
+const onCelebCreate = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.createCeleb(data)
+    .then(ui.createCelebSuccess)
+    .then(() => {
+      $('#fullDashboard').empty()
+    })
+    .then(onPageLoadSport)
+    .then(onPageLoadWeather)
+    .then(onPageLoadCeleb)
+    .then(onPageLoadNews)
+    .catch(ui.createCelebFailure)
+}
+
 export {
   onSignUp,
   onSignIn,
@@ -228,5 +286,9 @@ export {
   onCloseModal,
   onEditSportSubmit,
   onSportDelete,
-  onSportCreate
+  onSportCreate,
+  onCelebCreate,
+  onGetCelebId,
+  onEditCelebSubmit,
+  onCelebDelete
 }

@@ -102,7 +102,7 @@
                 <button data-toggle="modal" data-target="#createSportModal" class='btn'id='createSport'>Create Sport Widget</button>
               </li>
               <li>
-                <button class='btn' id='createCeleb'>Create Celeb Widget</button>
+                <button data-toggle="modal" data-target="#createCelebModal" class='btn' id='createCeleb'>Create Celeb Widget</button>
               </li>
               <li>
                 <button class='btn' id='createNews'>Create News Widget</button>
@@ -223,6 +223,36 @@
   </div>
 </div>
 
+<!-- Create Celeb modal -->
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="createCelebModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+      </div>
+      <div class="modal-body" id='fullCreateCelebForm'>
+        <form id="createCelebForm">
+          <fieldset>
+            <legend>Enter the Data for your new Celeb Widget Below</legend>
+            <input class='createCelebEmpty' type="text" name="celeb[name]" placeholder="Enter Name" required>
+            <input class='createCelebEmpty' type="number" name="celeb[age]" placeholder="Enter Age" required>
+            <input class='createCelebEmpty' type="text" name="celeb[occupation]" placeholder="Enter Occupation" required>
+            <input class='createCelebEmpty' type="text" name="celeb[google]" placeholder="Enter Google" required>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <section id="createCelebMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" id="createCelebClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- sport Edit/Delete Modal -->
 
 <div data-backdrop="static" data-keyboard="false" class="modal fade" id="sportsEditModal" tabindex="-1" role="dialog" aria-labelledby="Label" aria-hidden="true">
@@ -259,6 +289,47 @@
       <section id="editSportMessage"></section>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" id="getSportIdClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Celeb Edit Delete Modal -->
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="celebsEditModal" tabindex="-1" role="dialog" aria-labelledby="Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+      </div>
+      <div class="modal-body getCelebIdForm" id='getCelebIdForm'>
+        <form id="getCelebId">
+          <fieldset>
+            <legend>Select the ID for Celeb Widget</legend>
+            <input class='idSeltor' type="text" name="sport[id]" placeholder="Enter ID" required>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-body hide editCelebForm" id='editCelebForm'>
+        <form id="editCelebSubmit">
+          <fieldset>
+            <legend>Please enter the new data for your Celeb Widget</legend>
+            <input class='editCelebVal' type="text" name="celeb[name]" id="editCelebName" placeholder="Enter Name">
+            <input class='editCelebVal' type="number" name="celeb[age]" id="editCelebAge" placeholder="Enter Age">
+            <input class='editCelebVal' type="text" name="celeb[occupation]" id="editCelebOccupation" placeholder="Enter Occupation">
+            <input class='editCelebVal' type="text" name="celeb[google]" id="editCelebGoogle" placeholder="Enter Google Search">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+        <button class="btn btn-primary" id='celebDelete'>Delete this Widget</button>
+      </div>
+      <section id="editCelebMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" id="getCelebIdClose">Close</button>
       </div>
     </div>
   </div>

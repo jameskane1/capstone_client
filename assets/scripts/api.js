@@ -107,6 +107,17 @@ const getSportId = function (data) {
   })
 }
 
+const getCelebId = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/celebs/' + data.sport.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 const editWeather = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/weathers/' + store.weather1.id,
@@ -121,6 +132,17 @@ const editWeather = function (data) {
 const editSport = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/sports/' + store.sport1.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const editCeleb = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/celebs/' + store.celeb1.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -151,6 +173,17 @@ const deleteSport = function (data) {
   })
 }
 
+const deleteCeleb = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/celebs/' + store.celeb1.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 const createWeather = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/weathers',
@@ -165,6 +198,17 @@ const createWeather = function (data) {
 const createSport = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/sports',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const createCeleb = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/celebs',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -189,5 +233,9 @@ module.exports = {
   getSportId,
   editSport,
   deleteSport,
-  createSport
+  createSport,
+  createCeleb,
+  getCelebId,
+  editCeleb,
+  deleteCeleb
 }
