@@ -12,6 +12,12 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
 .nav-collapse>li { float: right; }
 
+.pwVerbiage {
+  font-size: 7.5px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .minibox {
   border: solid;
   height: inherit;

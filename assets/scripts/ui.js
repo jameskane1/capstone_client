@@ -84,6 +84,7 @@ const showOnSignIn = function () {
   $('#changePW').removeClass('hide')
   $('#createNavBar').removeClass('hide')
   $('#dash').removeClass('hide')
+  $('#nav-collapse4').removeClass('hide')
 }
 
 const showOnSignOut = function () {

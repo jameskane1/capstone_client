@@ -91,6 +91,7 @@ const onSignOut = function (event) {
     .then(ui.signOutSuccess)
     .then(ui.hideOnSignOut)
     .then(ui.showOnSignOut)
+    .then(toggleSet)
     .then(() => {
       $('#fullDashboard').empty()
     })
@@ -322,6 +323,49 @@ const onNewsCreate = function (event) {
     .then(onPageLoadCeleb)
     .then(onPageLoadNews)
     .catch(ui.createNewsFailure)
+}
+
+let loginClicks = 0
+let signupClicks = 0
+
+// hides sign in when clicking sign up
+$('#sign-up-button').click(function () {
+  $('#nav-collapse2').removeClass('hide')
+  $('#nav-collapse3').removeClass('hide')
+  signupClicks = $(this).data('signupClicks')
+  console.log('signupClicks is ', signupClicks)
+  if (signupClicks) {
+    $('#sign-in-button').removeClass('hide')
+  } else {
+    $('#sign-in-button').addClass('hide')
+  }
+  $(this).data('signupClicks', !signupClicks)
+})
+
+// hides sign-up when selecting sign in
+$('#sign-in-button').click(function () {
+  $('#nav-collapse2').removeClass('hide')
+  $('#nav-collapse3').removeClass('hide')
+  loginClicks = $(this).data('loginClicks')
+  console.log('loginClicks is ', loginClicks)
+  if (loginClicks) {
+    $('#sign-up-button').removeClass('hide')
+  } else {
+    $('#sign-up-button').addClass('hide')
+  }
+  $(this).data('loginClicks', !loginClicks)
+})
+
+$('#changePW').click(function () {
+  $('#nav-collapse4').removeClass('hide')
+})
+
+const toggleSet = function () {
+  if (loginClicks === true) {
+    $('#sign-in-button').addClass('hide')
+  } else if (loginClicks === false) {
+    $('#sign-up-button').addClass('hide')
+  }
 }
 
 export {
