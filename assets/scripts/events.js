@@ -124,6 +124,14 @@ const onGetCelebId = function (event) {
     .catch(ui.getCelebIdFailure)
 }
 
+const onGetNewsId = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.getNewsId(data)
+    .then(ui.getNewsIdSuccess)
+    .catch(ui.getNewsIdFailure)
+}
+
 const onEditWeatherSubmit = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
@@ -167,6 +175,21 @@ const onEditCelebSubmit = function (event) {
     .then(onPageLoadCeleb)
     .then(onPageLoadNews)
     .catch(ui.editCelebFailure)
+}
+
+const onEditNewsSubmit = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.editNews(data)
+    .then(ui.editNewsSuccess)
+    .then(() => {
+      $('#fullDashboard').empty()
+    })
+    .then(onPageLoadWeather)
+    .then(onPageLoadSport)
+    .then(onPageLoadCeleb)
+    .then(onPageLoadNews)
+    .catch(ui.editNewsFailure)
 }
 
 const onCloseModal = function () {
@@ -227,6 +250,20 @@ const onCelebDelete = function (event) {
     .catch(ui.deleteCelebFailure)
 }
 
+const onNewsDelete = function (event) {
+  event.preventDefault()
+  api.deleteNews()
+    .then(ui.deleteNewsSuccess)
+    .then(() => {
+      $('#fullDashboard').empty()
+    })
+    .then(onPageLoadWeather)
+    .then(onPageLoadSport)
+    .then(onPageLoadCeleb)
+    .then(onPageLoadNews)
+    .catch(ui.deleteNewsFailure)
+}
+
 const onWeatherCreate = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
@@ -272,6 +309,21 @@ const onCelebCreate = function (event) {
     .catch(ui.createCelebFailure)
 }
 
+const onNewsCreate = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.createNews(data)
+    .then(ui.createNewsSuccess)
+    .then(() => {
+      $('#fullDashboard').empty()
+    })
+    .then(onPageLoadSport)
+    .then(onPageLoadWeather)
+    .then(onPageLoadCeleb)
+    .then(onPageLoadNews)
+    .catch(ui.createNewsFailure)
+}
+
 export {
   onSignUp,
   onSignIn,
@@ -290,5 +342,9 @@ export {
   onCelebCreate,
   onGetCelebId,
   onEditCelebSubmit,
-  onCelebDelete
+  onCelebDelete,
+  onNewsCreate,
+  onGetNewsId,
+  onEditNewsSubmit,
+  onNewsDelete
 }

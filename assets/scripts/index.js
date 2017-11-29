@@ -61,6 +61,9 @@ $(() => {
   // get Celeb ID
   $('#getCelebId').on('submit', submitValues.onGetCelebId)
 
+  // get News ID
+  $('#getNewsId').on('submit', submitValues.onGetNewsId)
+
   // edit weather submit
   $('#editWeatherSubmit').on('submit', submitValues.onEditWeatherSubmit)
   // edit sport submit
@@ -69,12 +72,18 @@ $(() => {
   // edit Celeb submit
   $('#editCelebSubmit').on('submit', submitValues.onEditCelebSubmit)
 
+  // edit news submit
+  $('#editNewsSubmit').on('submit', submitValues.onEditNewsSubmit)
+
   // delte Weather Widget
   $('#weatherDelete').on('click', submitValues.onWeatherDelete)
   //  sport delete
   $('#sportDelete').on('click', submitValues.onSportDelete)
   //  Celeb delete
   $('#celebDelete').on('click', submitValues.onCelebDelete)
+
+  //  News delete
+  $('#newsDelete').on('click', submitValues.onNewsDelete)
 
   // create Weather Widget
   $('#createWeatherForm').on('submit', submitValues.onWeatherCreate)
@@ -84,6 +93,8 @@ $(() => {
 
   // create Celeb Widget
   $('#createCelebForm').on('submit', submitValues.onCelebCreate)
+  // create news Widget
+  $('#createNewsForm').on('submit', submitValues.onNewsCreate)
 
   // create Weather field closeWeather
   $('#createWeather').click(function () {
@@ -104,6 +115,13 @@ $(() => {
     $('.createCelebEmpty').val('')
     $('#createCelebMessage').empty()
     $('#fullCreateCelebForm').removeClass('hide')
+  })
+
+  // create news field clear
+  $('#createNews').click(function () {
+    $('.createNewsEmpty').val('')
+    $('#createNewsMessage').empty()
+    $('#fullCreateNewsForm').removeClass('hide')
   })
 
   // close modal clearing

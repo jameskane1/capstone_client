@@ -127,6 +127,17 @@ const getCelebIdSuccess = function (data) {
   $('#editCelebMessage').text('Your input Celeb Widget has been selected to be edited')
 }
 
+const getNewsIdSuccess = function (data) {
+  store.news1 = data.news_paper
+  console.log('thisis sport 1 ', store.news1)
+  $('#getNewsIdForm').addClass('hide')
+  $('#editNewsForm').removeClass('hide')
+  $('#editNewsName').val(store.news1.name)
+  $('#editNewsSite').val(store.news1.site)
+  $('#editNewsRegion').val(store.news1.region)
+  $('#editNewsMessage').text('Your input News Widget has been selected to be edited')
+}
+
 const getWeatherIdFailure = function (error) {
   $('#editMessage').text('We were unable to locate your widget ID. Please try again.', error)
 }
@@ -137,6 +148,10 @@ const getSportIdFailure = function (error) {
 
 const getCelebIdFailure = function (error) {
   $('#editCelebMessage').text('We were unable to locate your widget ID. Please try again.', error)
+}
+
+const getNewsIdFailure = function (error) {
+  $('#editNewsMessage').text('We were unable to locate your widget ID. Please try again.', error)
 }
 
 const editWeatherSuccess = function () {
@@ -151,8 +166,16 @@ const editCelebSuccess = function () {
   $('#editCelebMessage').text('You have successfully updated your Celeb app')
 }
 
+const editNewsSuccess = function () {
+  $('#editNewsMessage').text('You have successfully updated your News app')
+}
+
 const editCelebFailure = function () {
   $('#editCelebMessage').text('We were unable to update your widget at this time, please try again')
+}
+
+const editNewsFailure = function () {
+  $('#editNewsMessage').text('We were unable to update your widget at this time, please try again')
 }
 
 const editSportFailure = function () {
@@ -182,12 +205,21 @@ const deleteCelebSuccess = function () {
   $('#editCelebForm').addClass('hide')
 }
 
+const deleteNewsSuccess = function () {
+  $('#editNewsMessage').text('You have successfully deleted your News app')
+  $('#editNewsForm').addClass('hide')
+}
+
 const deleteSportFailure = function () {
   $('#editSportForm').text('We were unable to delete your sport app. Please try again')
 }
 
 const deleteCelebFailure = function () {
   $('#editCelebForm').text('We were unable to delete your sport app. Please try again')
+}
+
+const deleteNewsFailure = function () {
+  $('#editNewsForm').text('We were unable to delete your sport app. Please try again')
 }
 
 const createWeatherSuccess = function () {
@@ -205,6 +237,11 @@ const createCelebSuccess = function () {
   $('#fullCreateCelebForm').addClass('hide')
 }
 
+const createNewsSuccess = function () {
+  $('#createNewsMessage').text('You have successfully created your News app')
+  $('#fullCreateNewsForm').addClass('hide')
+}
+
 const createWeatherFailure = function (error) {
   $('#createWeatherMessage').text('We were unable to create your widget. Please try again.', error)
 }
@@ -215,6 +252,10 @@ const createSportFailure = function (error) {
 
 const createCelebFailure = function (error) {
   $('#createCelebMessage').text('We were unable to create your widget. Please try again.', error)
+}
+
+const createNewsFailure = function (error) {
+  $('#createNewsMessage').text('We were unable to create your widget. Please try again.', error)
 }
 
 export {
@@ -258,6 +299,13 @@ export {
   editSportFailure,
   editWeatherFailure,
   deleteCelebSuccess,
-  deleteCelebFailure
-
+  deleteCelebFailure,
+  createNewsFailure,
+  createNewsSuccess,
+  getNewsIdFailure,
+  getNewsIdSuccess,
+  editNewsSuccess,
+  editNewsFailure,
+  deleteNewsSuccess,
+  deleteNewsFailure
 }

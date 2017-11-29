@@ -118,6 +118,17 @@ const getCelebId = function (data) {
   })
 }
 
+const getNewsId = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/news_papers/' + data.news_paper.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 const editWeather = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/weathers/' + store.weather1.id,
@@ -143,6 +154,17 @@ const editSport = function (data) {
 const editCeleb = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/celebs/' + store.celeb1.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const editNews = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/news_papers/' + store.news1.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -184,6 +206,17 @@ const deleteCeleb = function (data) {
   })
 }
 
+const deleteNews = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/news_papers/' + store.news1.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 const createWeather = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/weathers',
@@ -217,6 +250,17 @@ const createCeleb = function (data) {
   })
 }
 
+const createNews = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/news_papers',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 module.exports = {
   createSignUp,
   createSignIn,
@@ -237,5 +281,9 @@ module.exports = {
   createCeleb,
   getCelebId,
   editCeleb,
-  deleteCeleb
+  deleteCeleb,
+  createNews,
+  getNewsId,
+  editNews,
+  deleteNews
 }
