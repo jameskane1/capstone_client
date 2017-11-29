@@ -4,11 +4,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; transition: transform 0.3s; }
 
 .navbar .navbar-collapse { position: relative; overflow: hidden !important; }
-.navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
+.navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 0px; }
 
 .navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
 .navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
-.navbar.navbar-inverse .nav-collapse { background-color: #222; }
+.navbar.navbar-inverse .nav-collapse { background-color: #ADD8E6; }
 .navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
 .nav-collapse>li { float: right; }
 
@@ -19,6 +19,16 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   text-align: center;
   font-size: 15px;
   width: 300px;
+}
+
+#createButtons {
+margin-left: 15%;
+margin-right: 10%;
+}
+
+.btn-primary {
+  border-radius: 6px;
+  padding: 5px;
 }
 
 #sign-in-form {

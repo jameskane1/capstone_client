@@ -1,12 +1,12 @@
 {{#each news_papers as |news_paper|}}
 
  <!-- Developers, why are we using data-id and not just id? -->
-<div class="col-xs-8 col-md-8 minibox">
+<div class="col-xs-10 col-md-10 minibox">
   <h5>Category: News</h5>
   <h5 data-id="{{news_paper.id}}"> <small>ID: {{news_paper.id}}</small></h5>
   <h5 data-id="{{news_paper.name}}"> <small>Name: {{news_paper.name}}</small></h5>
   <h5 data-id="{{news_paper.region}}"> <small>Region: {{news_paper.region}}</small></h5>
-  <h5 data-id="{{news_paper.site}}"> <small>Website: {{news_paper.site}}</small></h5>
+  <h5>  &nbsp;<a target=”_blank” href='http://www.google.com/search?q={{news_paper.name}}'>Google Search</a>&nbsp; </h5>
   <button data-toggle="modal" data-target="#newsEditModal" class='newsEdit'>Edit/Delete</button>
 </div>
 {{/each}}

@@ -6,7 +6,7 @@
   <h5 data-id="{{sport.id}}"> <small>ID: {{sport.id}}</small></h5>
   <h5 data-id="{{sport.team}}"> <small>Team: {{sport.team}}</small></h5>
   <h5 data-id="{{sport.league}}"> <small>League: {{sport.league}}</small></h5>
-  <a data-id="{{sport.google}}" href="{{sport.google}}"> <small>Google Search</small></a>
+  <h5> &nbsp;<a target=”_blank” href='http://www.google.com/search?q={{sport.team}}'>Google Search</a>&nbsp; </h5>
   <button data-toggle="modal" data-target="#sportsEditModal" class='sportEdit'>Edit/Delete</button>
 </div>
 {{/each}}
