@@ -71,12 +71,22 @@ $(() => {
   // create Weather Widget
   $('#createWeatherForm').on('submit', submitValues.onWeatherCreate)
 
+  // create Sport Widget
+  $('#createSportForm').on('submit', submitValues.onSportCreate)
+
   // create Weather field closeWeather
   // might not need???
   $('#createWeather').click(function () {
     $('.createWeatherEmpty').val('')
     $('#editWeatherMessage').empty()
     $('#fullCreateWeatherForm').removeClass('hide')
+  })
+
+  // create Sport field closeModal
+  $('#createSport').click(function () {
+    $('.createSportEmpty').val('')
+    $('#createSportMessage').empty()
+    $('#fullCreateSportForm').removeClass('hide')
   })
 
   // close modal clearing

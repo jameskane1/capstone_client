@@ -113,7 +113,7 @@ const onGetSportId = function (event) {
   event.preventDefault()
   api.getSportId(data)
     .then(ui.getSportIdSuccess)
-    .catch(ui.geSportIdFailure)
+    .catch(ui.getSportIdFailure)
 }
 
 const onEditWeatherSubmit = function (event) {
@@ -199,6 +199,21 @@ const onWeatherCreate = function (event) {
     .catch(ui.createWeatherFailure)
 }
 
+const onSportCreate = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.createSport(data)
+    .then(ui.createSportSuccess)
+    .then(() => {
+      $('#fullDashboard').empty()
+    })
+    .then(onPageLoadSport)
+    .then(onPageLoadWeather)
+    .then(onPageLoadCeleb)
+    .then(onPageLoadNews)
+    .catch(ui.createSportFailure)
+}
+
 export {
   onSignUp,
   onSignIn,
@@ -212,5 +227,6 @@ export {
   onGetSportId,
   onCloseModal,
   onEditSportSubmit,
-  onSportDelete
+  onSportDelete,
+  onSportCreate
 }

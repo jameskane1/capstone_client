@@ -119,6 +119,10 @@ const getWeatherIdFailure = function (error) {
   $('#editMessage').text('We were unable to locate your widget ID. Please try again.', error)
 }
 
+const getSportIdFailure = function (error) {
+  $('#editSportMessage').text('We were unable to locate your widget ID. Please try again.', error)
+}
+
 const editWeatherSuccess = function () {
   $('#editMessage').text('You have successfully updated your weather app')
 }
@@ -150,7 +154,16 @@ const createWeatherSuccess = function () {
   $('#fullCreateWeatherForm').addClass('hide')
 }
 
+const createSportSuccess = function () {
+  $('#createSportMessage').text('You have successfully created your weather app')
+  $('#fullCreateSportForm').addClass('hide')
+}
+
 const createWeatherFailure = function (error) {
+  $('#createWeatherMessage').text('We were unable to create your widget. Please try again.', error)
+}
+
+const createSportFailure = function (error) {
   $('#editWeatherMessage').text('We were unable to create your widget. Please try again.', error)
 }
 
@@ -182,5 +195,8 @@ export {
   editSportSuccess,
   deleteWeatherFailure,
   deleteSportSuccess,
-  deleteSportFailure
+  deleteSportFailure,
+  getSportIdFailure,
+  createSportSuccess,
+  createSportFailure
 }

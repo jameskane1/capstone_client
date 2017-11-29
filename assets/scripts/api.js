@@ -162,6 +162,17 @@ const createWeather = function (data) {
   })
 }
 
+const createSport = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/sports',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 module.exports = {
   createSignUp,
   createSignIn,
@@ -177,5 +188,6 @@ module.exports = {
   createWeather,
   getSportId,
   editSport,
-  deleteSport
+  deleteSport,
+  createSport
 }
