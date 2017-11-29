@@ -4,6 +4,7 @@ const showWeathersTemplate = require('/Users/n0252077/wdi/projects/capstone_clie
 const showSportsTemplate = require('/Users/n0252077/wdi/projects/capstone_client/capstone client/assets/scripts/templates/sportDashboard.handlebars')
 const showCelebTemplate = require('/Users/n0252077/wdi/projects/capstone_client/capstone client/assets/scripts/templates/celebDashboard.handlebars')
 const showNewsTemplate = require('/Users/n0252077/wdi/projects/capstone_client/capstone client/assets/scripts/templates/news.handlebars')
+const showUndergroundTemplate = require('/Users/n0252077/wdi/projects/capstone_client/capstone client/assets/scripts/templates/undergroundWeather.handlebars')
 
 const signUpSuccess = function (data) {
   $('#message').text('you have successfully signed up!')
@@ -21,7 +22,6 @@ const signInSuccess = function (data) {
 const showWeatherData = function (data) {
   const showPlaysHtml = showWeathersTemplate({ weathers: data.weathers })
   store.weathers = data.weathers
-  console.log('sore.weathers is ', store.weathers)
   $('#fullDashboard').append(showPlaysHtml)
 }
 
@@ -97,10 +97,16 @@ const showOnSignOut = function () {
 
 const getWeatherIdSuccess = function (data) {
   store.weather1 = data.weather
-  $('#getWeatherIdForm').addClass('hide')
+  $('.getWeatherIdForm').addClass('hide')
   $('#editWeatherForm').removeClass('hide')
+  // for 3rd party api
+  $('#undergroundForm').removeClass('hide')
+  $('#editWeatherUndergroundMessage').empty()
+  $('#undergroundCity').val(store.weather1.city)
+  $('#undergroundState').val(store.weather1.state)
+
   $('#editWeatherCity').val(store.weather1.city)
-  $('#editWeatherZip').val(store.weather1.zip)
+  $('#editWeatherState').val(store.weather1.state)
   $('#editWeatherGoogle').val(store.weather1.google)
   $('#editMessage').text('Your input play has been selected to be edited')
 }
@@ -141,6 +147,7 @@ const getNewsIdSuccess = function (data) {
 
 const getWeatherIdFailure = function (error) {
   $('#editMessage').text('We were unable to locate your widget ID. Please try again.', error)
+  $('#editWeatherUndergroundMessage').text('We were unable to locate your widget ID. Please try again.', error)
 }
 
 const getSportIdFailure = function (error) {
@@ -259,7 +266,14 @@ const createNewsFailure = function (error) {
   $('#createNewsMessage').text('We were unable to create your widget. Please try again.', error)
 }
 
+const getUndergroundSuccess = function (data) {
+  const showNewsHtml = showUndergroundTemplate({ undergrounds: data.current_observation })
+  $('#editWeatherUndergroundMessage').empty()
+  $('#editWeatherUndergroundMessage').append(showNewsHtml)
+}
+
 export {
+  getUndergroundSuccess,
   signUpFailure,
   signUpSuccess,
   signInSuccess,

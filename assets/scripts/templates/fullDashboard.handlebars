@@ -5,8 +5,9 @@
   <h5>Category: Weather</h5>
   <h5 data-id="{{weather.id}}"> <small>ID: {{weather.id}}</small></h5>
   <h5 data-id="{{weather.city}}"> <small>City: {{weather.city}}</small></h5>
-  <h5 data-id="{{weather.zip}}"> <small>Zip: {{weather.zip}}</small></h5>
+  <h5 data-id="{{weather.state}}"> <small>State: {{weather.state}}</small></h5>
   <h5> &nbsp;<a target=”_blank” href='http://www.google.com/search?q=Weather+in+{{weather.city}}'>Google Search</a>&nbsp; </h5>
   <button data-toggle="modal" data-target="#exampleModal" class='weatherEdit'>Edit/Delete</button>
+<button data-toggle="modal" data-target="#undergroundModal" class='weatherEdit'>Get Current Weather</button>
 </div>
 {{/each}}

@@ -113,10 +113,8 @@
         </div><!-- /.container -->
       </nav><!-- /.navbar -->
 
-
-
-
-<h1>We in this bitch</h1>
+<h3>Welcome to MyDashboard</h3>
+<h3>Please sign in to access your Personalized Dashboard</h3>
   <h5 id='message'></h5>
 
 <!-- post logi handlebars area -->
@@ -135,8 +133,8 @@
                 <span aria-hidden="true">&times;</span>
               </button>
       </div>
-      <div class="modal-body getWeatherIdForm" id='getWeatherIdForm'>
-        <form id="getWeatherId">
+      <div class="modal-body getWeatherIdForm">
+        <form class="getWeatherId">
           <fieldset>
             <legend>Select the ID for Weather Widget</legend>
             <input class='idSeltor' type="text" name="weather[id]" placeholder="Enter ID" required>
@@ -150,7 +148,7 @@
           <fieldset>
             <legend>Please enter the new data for your Weather Widget</legend>
             <input class='editWeatherVal' type="text" name="weather[city]" id="editWeatherCity" placeholder="Enter City">
-            <input class='editWeatherVal' type="number" name="weather[zip]" id="editWeatherZip" placeholder="Enter Zip">
+            <input maxlength="2" class='editWeatherVal' type="text" name="weather[state]" id="editWeatherState" placeholder="Enter State Abbrev.">
             <input class='editWeatherVal' type="text" name="weather[google]" id="editWeatherGoogle" placeholder="Enter Google Search">
             <button type="submit" class="btn btn-primary">Submit</button>
             <br>
@@ -180,7 +178,7 @@
           <fieldset>
             <legend>Enter the Data for your new Weather Widget Below</legend>
             <input class='createWeatherEmpty' type="text" name="weather[city]" placeholder="Enter City" required>
-            <input class='createWeatherEmpty' type="number" name="weather[zip]" placeholder="Enter Zip" required>
+            <input maxlength="2" class='createWeatherEmpty' type="text" name="weather[state]" placeholder="Enter State Abbrev." required>
             <input class='createWeatherEmpty' type="text" name="weather[google]" placeholder="Enter Google" required>
             <button type="submit" class="btn btn-primary">Submit</button>
             <br>
@@ -190,6 +188,44 @@
       <section id="editWeatherMessage"></section>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" id="createWeatherClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create 3rd Party Weather  -->
+
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="undergroundModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+
+              <div class="modal-body getWeatherIdForm">
+                <form class="getWeatherId">
+                  <fieldset>
+                    <legend>Select the ID for Weather Widget</legend>
+                    <input class='idSeltor' type="text" name="weather[id]" placeholder="Enter ID" required>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <br>
+                  </fieldset>
+                </form>
+              </div>
+
+      </div>
+      <div class="modal-body hide" id='undergroundForm'>
+        <form id="createWeatherUndergroundForm">
+          <fieldset>
+            <legend>Enter the City and State for Current Weather</legend>
+            <input class='createWeatherUndergroundEmpty' type="text" name="weatherUnderground[city]" placeholder="Enter City" id='undergroundCity' required>
+            <input maxlength="2" class='createWeatherUndergroundEmpty' type="text" name="weatherUnderground[state]" placeholder="Enter State Abbrev." id='undergroundState' required>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <section id="editWeatherUndergroundMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" id="createWeatherUndergroundClose">Close</button>
       </div>
     </div>
   </div>

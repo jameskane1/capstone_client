@@ -261,7 +261,24 @@ const createNews = function (data) {
   })
 }
 
+const getWeatherUnderGround = function (data) {
+  return $.ajax({
+    url: 'http://api.wunderground.com/api/48a26fb4ba6d0fdb/geolookup/conditions/q/IA/Cedar_Rapids.json',
+    method: 'GET',
+    data: data
+  })
+}
+
+const createUnderground = function (data) {
+  return $.ajax({
+    url: 'http://api.wunderground.com/api/48a26fb4ba6d0fdb/geolookup/conditions/q/' + store.underground.weatherUnderground.state + '/' + store.underground.weatherUnderground.city + '.json',
+    method: 'GET',
+    data: data
+  })
+}
+
 module.exports = {
+  createUnderground,
   createSignUp,
   createSignIn,
   changePassword,
@@ -285,5 +302,6 @@ module.exports = {
   createNews,
   getNewsId,
   editNews,
-  deleteNews
+  deleteNews,
+  getWeatherUnderGround
 }

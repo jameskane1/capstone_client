@@ -2,6 +2,7 @@
 const getFormFields = require('./../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./store')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -47,6 +48,11 @@ const onSignIn = function (event) {
       })
     })
     .catch(ui.signInFailure)
+}
+
+const onGetWeatherUnderground = function (event) {
+  api.getWeatherUnderGround()
+    .then(ui.weatherUndergroundSuccess)
 }
 
 const onPageLoadWeather = function () {
@@ -199,6 +205,8 @@ const onCloseModal = function () {
   $('#editSportMessage').empty()
   $('#editCelebMessage').empty()
   $('#editNewsMessage').empty()
+  $('#editWeatherUndergroundMessage').empty()
+  $('#undergroundForm').addClass('hide')
   $('.getWeatherIdForm').removeClass('hide')
   $('.editWeatherForm').addClass('hide')
   $('.getSportIdForm').removeClass('hide')
@@ -361,14 +369,25 @@ $('#changePW').click(function () {
 })
 
 const toggleSet = function () {
+  console.log('thisis loginClicks', loginClicks)
   if (loginClicks === true) {
     $('#sign-in-button').addClass('hide')
-  } else if (loginClicks === false) {
+  } else if (loginClicks === false || loginClicks === undefined) {
     $('#sign-up-button').addClass('hide')
   }
 }
 
+const onUndergroundCreate = function (event) {
+  const data = getFormFields(this)
+  store.underground = data
+  event.preventDefault()
+  api.createUnderground(data)
+    .then(ui.getUndergroundSuccess)
+    .catch(ui.getUndergroundFailure)
+}
+
 export {
+  onUndergroundCreate,
   onSignUp,
   onSignIn,
   onChangePassword,
@@ -390,5 +409,6 @@ export {
   onNewsCreate,
   onGetNewsId,
   onEditNewsSubmit,
-  onNewsDelete
+  onNewsDelete,
+  onGetWeatherUnderground
 }

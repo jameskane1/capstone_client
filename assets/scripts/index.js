@@ -21,7 +21,7 @@ $(() => {
   // $('#logOut-button').on('click', loginClicks = 0)
 
   // get Weather ID
-  $('#getWeatherId').on('submit', submitValues.onGetWeatherId)
+  $('.getWeatherId').on('submit', submitValues.onGetWeatherId)
   // get Sport ID
   $('#getSportId').on('submit', submitValues.onGetSportId)
 
@@ -93,6 +93,13 @@ $(() => {
 
   // close modal clearing
   $('.closeModal').on('click', submitValues.onCloseModal)
+
+  // get weather wunderground Data
+  $('#weatherUnderground').on('click', submitValues.onGetWeatherUnderground)
+  // create weather underground widget
+
+  // THIS IS WHAT YOU WANT FOR THE NEW WIDGET
+  $('#createWeatherUndergroundForm').on('submit', submitValues.onUndergroundCreate)
 })
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
