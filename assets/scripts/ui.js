@@ -15,7 +15,7 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
-  $('#message').text('Signed in successfully')
+  $('#message').text('Signed in successfully. To get started slected a create button above!')
   store.user = data.user
   $('#userName').text(store.user.email)
 }
@@ -79,6 +79,7 @@ const hideOnSignOut = function () {
   $('#changePW').addClass('hide')
   $('#createNavBar').addClass('hide')
   $('#dash').addClass('hide')
+  $('#signUpHelp').empty()
 }
 
 const showOnSignIn = function () {

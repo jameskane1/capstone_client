@@ -3,11 +3,11 @@
  <!-- Developers, why are we using data-id and not just id? -->
 <div class="col-xs-8 col-md-8 minibox sport">
   <h5>Category: Sports</h5>
+  <div><img id='sportsImage' src='https://pbs.twimg.com/profile_images/686982457145606144/r0zrA1_G.png'></div>
   <p data-id="{{sport.id}}"> ID: {{sport.id}}</p>
   <p data-id="{{sport.team}}"> Team: {{sport.team}}</p>
   <p data-id="{{sport.league}}"> League: {{sport.league}}</p>
   <p> &nbsp;<a id='sportLink' target=”_blank” href='http://www.google.com/search?q={{sport.team}}'>Google Search</a>&nbsp; </p>
   <button id='sportButton' data-toggle="modal" data-target="#sportsEditModal" class='btn-primary sportEdit'>Edit/Delete</button>
-
 </div>
 {{/each}}
