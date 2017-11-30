@@ -231,12 +231,12 @@ const deleteNewsFailure = function () {
 }
 
 const createWeatherSuccess = function () {
-  $('#editWeatherMessage').text('You have successfully created your weather app')
+  $('#editWeatherMessage').text('You have successfully created your Weather app')
   $('#fullCreateWeatherForm').addClass('hide')
 }
 
 const createSportSuccess = function () {
-  $('#createSportMessage').text('You have successfully created your weather app')
+  $('#createSportMessage').text('You have successfully created your Sport app')
   $('#fullCreateSportForm').addClass('hide')
 }
 
