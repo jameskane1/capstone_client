@@ -1,7 +1,34 @@
-<h5>Tempurature in F: <p>{{undergrounds.temp_f}}</p></h5>
-<h5>Feels Like: <p>{{undergrounds.feelslike_f}}</p></h5>
-<h5>Relative Humidity: <p>{{undergrounds.relative_humidity}}</p></h5>
-<h5>Wind MPH: <p>{{undergrounds.wind_mph}}</p></h5>
-<h5>Wind Chill in F: <p>{{undergrounds.windchill_f}}</p></h5>
-<h5>Precipitation Today in Inches: <p>{{undergrounds.precip_today_in}}</p></h5>
-<h5> &nbsp;<a target=”_blank” href='{{undergrounds.forecast_url}}'>Link to Forecast</a>&nbsp; </h5>
+
+<div class="table-responsive" id='weatherInfo'>
+  <h4 class="centered">Your Weather Report</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="info">
+        <td><h5>Tempurature in F: <p>{{undergrounds.temp_f}}</p></h5></td>
+      </tr>
+      <tr class="info">
+        <td><h5>Feels Like: <p>{{undergrounds.feelslike_f}}</p></h5></td>
+      </tr>
+      <tr class="info">
+        <td><h5>Relative Humidity: <p>{{undergrounds.relative_humidity}}</p></h5></td>
+      </tr>
+      <tr class="info">
+        <td><h5>Wind MPH: <p>{{undergrounds.wind_mph}}</p></h5></td>
+      </tr>
+      <tr class="info">
+        <td><h5>Wind Chill in F: <p>{{undergrounds.windchill_f}}</p></h5></td>
+      </tr>
+      <tr class="info">
+        <td><h5>Precipitation Today in Inches: <p>{{undergrounds.precip_today_in}}</p></h5></td>
+      </tr>
+      <tr class="info">
+        <td><h5> &nbsp;<a target=”_blank” href='{{undergrounds.forecast_url}}'>Link to Forecast</a>&nbsp; </h5></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

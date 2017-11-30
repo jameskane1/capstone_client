@@ -70,6 +70,7 @@ const hideOnSignIn = function () {
   $('#sign-up-button').addClass('hide')
   $('#nav-collapse2').addClass('hide')
   $('#nav-collapse3').addClass('hide')
+  $('.welcomeMessage').addClass('hide')
 }
 
 const hideOnSignOut = function () {
@@ -93,6 +94,7 @@ const showOnSignOut = function () {
   $('#nav-collapse4').addClass('hide')
   $('#nav-collapse2').removeClass('hide')
   $('#nav-collapse3').removeClass('hide')
+  $('.welcomeMessage').removeClass('hide')
 }
 
 const getWeatherIdSuccess = function (data) {
