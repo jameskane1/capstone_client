@@ -1,14 +1,14 @@
 {{#each celebs as |celeb|}}
 
  <!-- Developers, why are we using data-id and not just id? -->
-<div class="col-xs-8 col-md-8 minibox">
+<div class="col-xs-8 col-md-8 minibox celeb">
   <h5>Category: Celebs</h5>
-  <h5 data-id="{{celeb.id}}"> <small>ID: {{celeb.id}}</small></h5>
-  <h5 data-id="{{celeb.name}}"> <small>Name: {{celeb.name}}</small></h5>
-  <h5 data-id="{{celeb.age}}"> <small>Age: {{celeb.age}}</small></h5>
-  <h5 data-id="{{celeb.occupation}}"> <small>Occupation: {{celeb.occupation}}</small></h5>
-  <h5> &nbsp;<a target=”_blank” href='http://www.google.com/search?q={{celeb.name}}'>Google Search</a>&nbsp; </h5>
-  <button data-toggle="modal" data-target="#celebsEditModal" class='celebEdit'>Edit/Delete</button>
+  <p data-id="{{celeb.id}}" > ID: {{celeb.id}}</p>
+  <p data-id="{{celeb.name}}"> Name: {{celeb.name}}</p>
+  <p data-id="{{celeb.age}}"> Age: {{celeb.age}}</p>
+  <p data-id="{{celeb.occupation}}"> Occupation: {{celeb.occupation}}</p>
+  <p> &nbsp;<a id='celebLink' target=”_blank” href='http://www.google.com/search?q={{celeb.name}}'>Google Search</a>&nbsp; </p>
+  <button id='celebButton' data-toggle="modal" data-target="#celebsEditModal" class='celebEdit'>Edit/Delete</button>
 
 </div>
 {{/each}}

@@ -1,12 +1,12 @@
 {{#each weathers as |weather|}}
 
  <!-- Developers, why are we using data-id and not just id? -->
-<div class="col-xs-8 col-md-8 minibox">
+<div class="col-xs-8 col-md-8 minibox weather">
   <h5>Category: Weather</h5>
-  <h5 data-id="{{weather.id}}"> <small>ID: {{weather.id}}</small></h5>
-  <h5 data-id="{{weather.city}}"> <small>City: {{weather.city}}</small></h5>
-  <h5 data-id="{{weather.state}}"> <small>State: {{weather.state}}</small></h5>
-  <h5> &nbsp;<a target=”_blank” href='http://www.google.com/search?q=Weather+in+{{weather.city}}'>Google Search</a>&nbsp; </h5>
+  <p data-id="{{weather.id}}"> ID: {{weather.id}}</p>
+  <p data-id="{{weather.city}}"> City: {{weather.city}}</p>
+  <p data-id="{{weather.state}}"> State: {{weather.state}}</p>
+  <p> &nbsp;<a id='weatherLink' target=”_blank” href='http://www.google.com/search?q=Weather+in+{{weather.city}}'>Google Search</a>&nbsp; </p>
   <button data-toggle="modal" data-target="#exampleModal" class='weatherEdit'>Edit/Delete</button>
 <button data-toggle="modal" data-target="#undergroundModal" class='weatherEdit'>Get Current Weather</button>
 </div>

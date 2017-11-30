@@ -1,12 +1,12 @@
 {{#each sports as |sport|}}
 
  <!-- Developers, why are we using data-id and not just id? -->
-<div class="col-xs-8 col-md-8 minibox">
+<div class="col-xs-8 col-md-8 minibox sport">
   <h5>Category: Sports</h5>
-  <h5 data-id="{{sport.id}}"> <small>ID: {{sport.id}}</small></h5>
-  <h5 data-id="{{sport.team}}"> <small>Team: {{sport.team}}</small></h5>
-  <h5 data-id="{{sport.league}}"> <small>League: {{sport.league}}</small></h5>
-  <h5> &nbsp;<a target=”_blank” href='http://www.google.com/search?q={{sport.team}}'>Google Search</a>&nbsp; </h5>
+  <p data-id="{{sport.id}}"> ID: {{sport.id}}</p>
+  <p data-id="{{sport.team}}"> Team: {{sport.team}}</p>
+  <p data-id="{{sport.league}}"> League: {{sport.league}}</p>
+  <p> &nbsp;<a id='sportLink' target=”_blank” href='http://www.google.com/search?q={{sport.team}}'>Google Search</a>&nbsp; </p>
   <button data-toggle="modal" data-target="#sportsEditModal" class='sportEdit'>Edit/Delete</button>
 </div>
 {{/each}}

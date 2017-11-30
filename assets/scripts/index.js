@@ -100,6 +100,8 @@ $(() => {
 
   // THIS IS WHAT YOU WANT FOR THE NEW WIDGET
   $('#createWeatherUndergroundForm').on('submit', submitValues.onUndergroundCreate)
+
+  document.body.style.backgroundColor = 'transparent'
 })
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')

@@ -12,19 +12,101 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
 .nav-collapse>li { float: right; }
 
+html {
+  background-color: #E8E8E8;
+}
+
+#topNavBar {
+  margin-bottom: 0px;
+  padding-bottom: 2px;
+}
+
+#createNavBar {
+  border-radius: 6px;
+  padding-top: 5px;
+}
+
 .pwVerbiage {
   font-size: 7.5px;
   margin-top: 0;
   margin-bottom: 0;
 }
 
+#celebLink:link {
+  color: #ffffff;
+}
+
+#celebButton {
+  color: #000000;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .minibox {
+  border-radius: 25px;
   border: solid;
+  border-style: inset;
+  border-color: #ADD8E6;
   height: inherit;
   margin: 5px;
   text-align: center;
   font-size: 15px;
   width: 300px;
+  height: 200px;
+}
+
+.celeb {
+  font-family: Papyrus, fantasy;
+  background-color: #77C9D4;
+  color: #ffffff;
+  font-size: 12.5px;
+}
+
+#weatherLink:link {
+  color: #ffffff;
+}
+
+.weatherEdit {
+  color: #000000;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.weather {
+  font-family: Papyrus, fantasy;
+  background-color: #57BC90;
+  color: #ffffff;
+  font-size: 12.5px;
+}
+
+#newsLink:link {
+  color: #ffffff;
+}
+
+.newsEdit {
+  color: #000000;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.news {
+  font-family: Papyrus, fantasy;
+  background-color: #015249;
+  color: #ffffff;
+  font-size: 12.5px;
+}
+
+#sportLink:link {
+  color: #ffffff;
+}
+
+.sportEdit {
+  color: #000000;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.sport {
+  font-family: Papyrus, fantasy;
+  background-color: #A5A5AF;
+  color: #ffffff;
+  font-size: 12.5px;
 }
 
 #createButtons {
