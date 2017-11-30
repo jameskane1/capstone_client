@@ -13,7 +13,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .nav-collapse>li { float: right; }
 
 html {
-  background-color: #E8E8E8;
+  background-color: #C6E2FF;
 }
 
 #topNavBar {
@@ -32,7 +32,11 @@ html {
   margin-bottom: 0;
 }
 
-#celebLink:link {
+#celebLink {
+  color: #ffffff;
+}
+
+#newsLink {
   color: #ffffff;
 }
 
@@ -61,7 +65,7 @@ html {
   font-size: 12.5px;
 }
 
-#weatherLink:link {
+#weatherLink {
   color: #ffffff;
 }
 
@@ -77,10 +81,6 @@ html {
   font-size: 12.5px;
 }
 
-#newsLink:link {
-  color: #ffffff;
-}
-
 .newsEdit {
   color: #000000;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -88,12 +88,12 @@ html {
 
 .news {
   font-family: Papyrus, fantasy;
-  background-color: #015249;
+  background-color: #A5A5AF;
   color: #ffffff;
   font-size: 12.5px;
 }
 
-#sportLink:link {
+#sportLink {
   color: #ffffff;
 }
 
@@ -104,7 +104,7 @@ html {
 
 .sport {
   font-family: Papyrus, fantasy;
-  background-color: #A5A5AF;
+  background-color: #015249;
   color: #ffffff;
   font-size: 12.5px;
 }
