@@ -1,5 +1,3 @@
-```md
-
 ![alt text](https://i.imgur.com/HLc2laL.png)
 ![alt text](https://i.imgur.com/Tf1jq6f.png)
 
@@ -70,5 +68,3 @@ Technologies Used:
 Unsolved Problems
 
 At this point I do not have any unsolved problems for my MVP
-
-```
