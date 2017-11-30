@@ -115,7 +115,6 @@ const getWeatherIdSuccess = function (data) {
 
 const getSportIdSuccess = function (data) {
   store.sport1 = data.sport
-  console.log('thisis sport 1 ', store.sport1)
   $('#getSportIdForm').addClass('hide')
   $('#editSportForm').removeClass('hide')
   $('#editSportTeam').val(store.sport1.team)
@@ -126,7 +125,6 @@ const getSportIdSuccess = function (data) {
 
 const getCelebIdSuccess = function (data) {
   store.celeb1 = data.celeb
-  console.log('thisis sport 1 ', store.celeb1)
   $('#getCelebIdForm').addClass('hide')
   $('#editCelebForm').removeClass('hide')
   $('#editCelebName').val(store.celeb1.name)
@@ -138,7 +136,6 @@ const getCelebIdSuccess = function (data) {
 
 const getNewsIdSuccess = function (data) {
   store.news1 = data.news_paper
-  console.log('thisis sport 1 ', store.news1)
   $('#getNewsIdForm').addClass('hide')
   $('#editNewsForm').removeClass('hide')
   $('#editNewsName').val(store.news1.name)

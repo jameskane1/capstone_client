@@ -7,6 +7,7 @@
   <p data-id="{{sport.team}}"> Team: {{sport.team}}</p>
   <p data-id="{{sport.league}}"> League: {{sport.league}}</p>
   <p> &nbsp;<a id='sportLink' target=”_blank” href='http://www.google.com/search?q={{sport.team}}'>Google Search</a>&nbsp; </p>
-  <button data-toggle="modal" data-target="#sportsEditModal" class='sportEdit'>Edit/Delete</button>
+  <button id='sportButton' data-toggle="modal" data-target="#sportsEditModal" class='btn-primary sportEdit'>Edit/Delete</button>
+
 </div>
 {{/each}}

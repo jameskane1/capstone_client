@@ -16,6 +16,10 @@ html {
   background-color: #C6E2FF;
 }
 
+.alert {
+    background-color: #C6E2FF;
+}
+
 #topNavBar {
   margin-bottom: 0px;
   padding-bottom: 2px;
@@ -41,9 +45,18 @@ html {
 }
 
 #celebButton {
-  color: #000000;
+  color: black;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+#celebButton:hover {
+  color:white;
+}
+
+// #sportButton {
+//   color: #000000;
+//   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+// }
 
 #weatherInfo {
   table-layout: fixed;
@@ -60,7 +73,7 @@ html {
   text-align: center;
   font-size: 15px;
   width: 300px;
-  height: 200px;
+  height: 215px;
 }
 
 .centered {
@@ -249,6 +262,13 @@ body{
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   transition: all 0.5s;
+}
+
+#createNavBar{
+  text-decoration:none;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  transition: all 1s;
 }
 
 .welcomeMessage:nth-child(1) .welcomeLink{

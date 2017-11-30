@@ -215,6 +215,7 @@ const onCloseModal = function () {
   $('.editCelebForm').addClass('hide')
   $('.getNewsIdForm').removeClass('hide')
   $('.editNewsForm').addClass('hide')
+  $('#message').empty()
 }
 
 const onWeatherDelete = function (event) {
@@ -341,7 +342,6 @@ $('#sign-up-button').click(function () {
   $('#nav-collapse2').removeClass('hide')
   $('#nav-collapse3').removeClass('hide')
   signupClicks = $(this).data('signupClicks')
-  console.log('signupClicks is ', signupClicks)
   if (signupClicks) {
     $('#sign-in-button').removeClass('hide')
   } else {
@@ -355,7 +355,6 @@ $('#sign-in-button').click(function () {
   $('#nav-collapse2').removeClass('hide')
   $('#nav-collapse3').removeClass('hide')
   loginClicks = $(this).data('loginClicks')
-  console.log('loginClicks is ', loginClicks)
   if (loginClicks) {
     $('#sign-up-button').removeClass('hide')
   } else {
@@ -369,7 +368,6 @@ $('#changePW').click(function () {
 })
 
 const toggleSet = function () {
-  console.log('thisis loginClicks', loginClicks)
   if (loginClicks === true) {
     $('#sign-in-button').addClass('hide')
   } else if (loginClicks === false || loginClicks === undefined) {
