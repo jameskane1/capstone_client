@@ -17,6 +17,7 @@ const signUpFailure = function (error) {
 const signInSuccess = function (data) {
   $('#message').text('Signed in successfully')
   store.user = data.user
+  $('#userName').text(store.user.email)
 }
 
 const showWeatherData = function (data) {

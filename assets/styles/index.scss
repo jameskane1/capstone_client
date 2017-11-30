@@ -53,10 +53,6 @@ html {
   color:white;
 }
 
-// #sportButton {
-//   color: #000000;
-//   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-// }
 
 #weatherInfo {
   table-layout: fixed;
@@ -163,6 +159,11 @@ margin-right: 10%;
   margin-right: 20%;
   margin-left: 0%;
   padding-left: 0%;
+}
+
+#userName {
+position: absolute;
+left: 85%;
 }
 
 .btn.btn-outline { background-color: transparent; }
@@ -782,6 +783,10 @@ color:#ffffff;
     .navbar.navbar-default .nav-collapse.in,
     .navbar.navbar-inverse .nav-collapse.in {
         transform: translate(0px,0px);
+    }
+
+    #userName {
+      display: none;
     }
 
     #login-buttons{
