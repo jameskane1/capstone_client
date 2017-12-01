@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>myDashboard</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+      <!-- Second navbar for sign in -->
+      <nav class="navbar navbar-default" id='topNavBar'>
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="navbar-collapse-2">
+            <ul class="nav navbar-nav navbar-right" id='login-buttons'>
+              <li>
+                <a id="sign-in-button" class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign In</a>
+              </li>
+              <li>
+                <a id="sign-up-button" class="btn btn-default btn-outline btn-circle collapsed" data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse2">Sign Up</a>
+              </li>
+              <li>
+                <button id="logOut-button" class="hide btn btn-default btn-outline btn-circle collapsed"> Sign Out</button>
+              </li>
+              <li>
+                <a id="changePW" class="hide btn btn-default btn-outline btn-circle collapsed" data-toggle="collapse" href="#nav-collapse4" aria-expanded="false" aria-controls="nav-collapse2">Change PW</a>
+              </li>
+            </ul>
+            <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse2">
+              <form class="navbar-form navbar-right form-inline" role="form" id='sign-in-form'>
+                <div class="form-group">
+                  <label class="sr-only" for="Email">Email</label>
+                  <input name ="credentials[email]" type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="Password">Password</label>
+                  <input name="credentials[password]" type="password" class="form-control" id="Password" placeholder="Password" required />
+                </div>
+                <button type="submit" class="btn btn-success">Sign in</button>
+              </form>
+            </div>
+            <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse3">
+              <form class="navbar-form navbar-right form-inline" role="form" id='sign-up-form'>
+                <div class="form-group">
+                  <label class="sr-only" for="Email">Email</label>
+                  <input name ="credentials[email]" type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="Password">Password</label>
+                  <input name="credentials[password]" type="password" class="form-control" id="Password" placeholder="Password" required />
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="Password">Confirm Password</label>
+                  <input name="credentials[password_confirmation]" type="password" class="form-control" id="Password" placeholder="Confirm Password" required />
+                </div>
+                <button type="submit" class="btn btn-success">Sign Up</button>
+              </form>
+            </div>
+
+            <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse4">
+            <form class="navbar-form navbar-right form-inline" role="form" id='changePW-form'>
+              <p class='pwVerbiage'>Update Password Here!</p>
+              <div class="form-group">
+                <label class="sr-only" for="Password">Password</label>
+                <input name="passwords[old]" type="password" class="form-control" id="Password" placeholder="Password Old" required />
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="Password">Confirm Password</label>
+                <input name="passwords[new]" type="password" class="form-control" id="Password" placeholder="Password New" required />
+              </div>
+              <button type="submit" class="btn btn-success">Save</button>
+            </form>
+          </div>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+      </nav><!-- /.navbar -->
+
+<!-- Nav bar for creating Widgets -->
+      <nav class="navbar-default hide" id='createNavBar'>
+        <div class="container">
+
+          <div class='postLoginHeader' id='createButtons'>
+            <ul class="nav navbar-nav">
+              <li>
+                <button data-toggle="modal" data-target="#createWeatherModal" class='btn-primary collapsed' id='createWeather'>Create Weather Widget</button>
+                </li>
+              <li>
+                <button data-toggle="modal" data-target="#createSportModal" class='btn-primary collapsed'id='createSport'>Create Sport Widget</button>
+              </li>
+              <li>
+                <button data-toggle="modal" data-target="#createCelebModal" class='btn-primary collapsed' id='createCeleb'>Create Celeb Widget</button>
+              </li>
+              <li>
+                <button data-toggle="modal" data-target="#createNewsModal" class='btn-primary collapsed' id='createNews'>Create News Widget</button>
+              </li>
+            </ul>
+            <div id='userName'></div>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+      </nav><!-- /.navbar -->
+
+<div class="alert alert-info" role="alert" >
+<h4 id='message'></h4>
+</div>
+
+<div id="container">
+
+  <p class='welcomeMessage'><a class='welcomeLink' href=#>
+    MyDashboard
+  </a></p>
+
+</div>
+<h3 class='transparent welcomeMessage' id="introMessage">Please sign in to access your Personalized Dashboard</h3>
+
+
+<!-- post logi handlebars area -->
+<div class='hide' id='dash'>
+  <h3 id='dashBoardHeader'>Your Personalized Dashboard</h3>
+      <div class="row" >
+        <div class="col-xs-12 col-md-12 bigbox" id='fullDashboard'></div>
+      </div>
+</div>
+
+
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+      </div>
+      <div class="modal-body getWeatherIdForm">
+        <form class="getWeatherId">
+          <fieldset>
+            <legend>Select the ID for Weather Widget</legend>
+            <input class='idSeltor' type="text" name="weather[id]" placeholder="Enter ID" required>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-body hide editWeatherForm" id='editWeatherForm'>
+        <form id="editWeatherSubmit">
+          <fieldset>
+            <legend>Please enter the new data for your Weather Widget</legend>
+            <input class='editWeatherVal' type="text" name="weather[city]" id="editWeatherCity" placeholder="Enter City">
+            <input maxlength="2" class='editWeatherVal' type="text" name="weather[state]" id="editWeatherState" placeholder="Enter State Abbrev.">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+        <button class="btn btn-primary" id='weatherDelete'>Delete this Widget</button>
+      </div>
+      <section id="editMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" id="getWeatherIdClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- create Weather Modal -->
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="createWeatherModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body" id='fullCreateWeatherForm'>
+        <form id="createWeatherForm">
+          <fieldset>
+            <legend>Enter the Data for your new Weather Widget Below</legend>
+            <input class='createWeatherEmpty' type="text" name="weather[city]" placeholder="Enter City" required>
+            <input maxlength="2" class='createWeatherEmpty' type="text" name="weather[state]" placeholder="Enter State Abbrev." required>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <section id="editWeatherMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" id="createWeatherClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create 3rd Party Weather  -->
+
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="undergroundModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+
+              <div class="modal-body getWeatherIdForm">
+                <form class="getWeatherId">
+                  <fieldset>
+                    <legend>Select the ID for Weather Widget</legend>
+                    <input class='idSeltor' type="text" name="weather[id]" placeholder="Enter ID" required>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <br>
+                  </fieldset>
+                </form>
+              </div>
+
+      </div>
+      <div class="modal-body hide" id='undergroundForm'>
+        <form id="createWeatherUndergroundForm">
+          <fieldset>
+            <legend>Enter the City and State for Current Weather</legend>
+            <input class='createWeatherUndergroundEmpty' type="text" name="weatherUnderground[city]" placeholder="Enter City" id='undergroundCity' required>
+            <input maxlength="2" class='createWeatherUndergroundEmpty' type="text" name="weatherUnderground[state]" placeholder="Enter State Abbrev." id='undergroundState' required>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <section id="editWeatherUndergroundMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" id="createWeatherUndergroundClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Create Sport modal  -->
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="createSportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body" id='fullCreateSportForm'>
+        <form id="createSportForm">
+          <fieldset>
+            <legend>Enter the Data for your new Sport Widget Below</legend>
+            <input class='createSportEmpty' type="text" name="sport[team]" placeholder="Enter Team" required>
+            <input class='createSportEmpty' type="text" name="sport[league]" placeholder="Enter League" required>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <section id="createSportMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" id="createSportClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create Celeb modal -->
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="createCelebModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body" id='fullCreateCelebForm'>
+        <form id="createCelebForm">
+          <fieldset>
+            <legend>Enter the Data for your new Celeb Widget Below</legend>
+            <input class='createCelebEmpty' type="text" name="celeb[name]" placeholder="Enter Name" required>
+            <input class='createCelebEmpty' type="number" name="celeb[age]" placeholder="Enter Age" required>
+            <input class='createCelebEmpty' type="text" name="celeb[occupation]" placeholder="Enter Occupation" required>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <section id="createCelebMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" id="createCelebClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create News  -->
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="createNewsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body" id='fullCreateNewsForm'>
+        <form id="createNewsForm">
+          <fieldset>
+            <legend>Enter the Data for your new News Widget Below</legend>
+            <input class='createNewsEmpty' type="text" name="news_paper[name]" placeholder="Enter Name" required>
+            <input class='createNewsEmpty' type="text" name="news_paper[site]" placeholder="URL without www." required>
+            <input class='createNewsEmpty' type="text" name="news_paper[region]" placeholder="Enter Region" required>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <section id="createNewsMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" id="createNewsClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- sport Edit/Delete Modal -->
+
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="sportsEditModal" tabindex="-1" role="dialog" aria-labelledby="Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+      </div>
+      <div class="modal-body getSportIdForm" id='getSportIdForm'>
+        <form id="getSportId">
+          <fieldset>
+            <legend>Select the ID for Sport Widget</legend>
+            <input class='idSeltor' type="text" name="sport[id]" placeholder="Enter ID" required>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-body hide editSportForm" id='editSportForm'>
+        <form id="editSportSubmit">
+          <fieldset>
+            <legend>Please enter the new data for your Sport Widget</legend>
+            <input class='editSportVal' type="text" name="sport[team]" id="editSportTeam" placeholder="Enter Team">
+            <input class='editSportVal' type="text" name="sport[league]" id="editSportLeague" placeholder="Enter League">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+        <button class="btn btn-primary" id='sportDelete'>Delete this Widget</button>
+      </div>
+      <section id="editSportMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" id="getSportIdClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Celeb Edit Delete Modal -->
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="celebsEditModal" tabindex="-1" role="dialog" aria-labelledby="Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+      </div>
+      <div class="modal-body getCelebIdForm" id='getCelebIdForm'>
+        <form id="getCelebId">
+          <fieldset>
+            <legend>Select the ID for Celeb Widget</legend>
+            <input class='idSeltor' type="text" name="sport[id]" placeholder="Enter ID" required>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-body hide editCelebForm" id='editCelebForm'>
+        <form id="editCelebSubmit">
+          <fieldset>
+            <legend>Please enter the new data for your Celeb Widget</legend>
+            <input class='editCelebVal' type="text" name="celeb[name]" id="editCelebName" placeholder="Enter Name">
+            <input class='editCelebVal' type="number" name="celeb[age]" id="editCelebAge" placeholder="Enter Age">
+            <input class='editCelebVal' type="text" name="celeb[occupation]" id="editCelebOccupation" placeholder="Enter Occupation">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+        <button class="btn btn-primary" id='celebDelete'>Delete this Widget</button>
+      </div>
+      <section id="editCelebMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" id="getCelebIdClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- News Edit Delete Modal -->
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="newsEditModal" tabindex="-1" role="dialog" aria-labelledby="Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+      </div>
+      <div class="modal-body getNewsIdForm" id='getNewsIdForm'>
+        <form id="getNewsId">
+          <fieldset>
+            <legend>Select the ID for News Widget</legend>
+            <input class='idSeltor' type="text" name="news_paper[id]" placeholder="Enter ID" required>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-body hide editNewsForm" id='editNewsForm'>
+        <form id="editNewsSubmit">
+          <fieldset>
+            <legend>Please enter the new data for your News Widget</legend>
+            <input class='editNewsVal' type="text" name="news_paper[name]" id="editNewsName" placeholder="Enter Name">
+            <input class='editNewsVal' type="text" name="news_paper[site]" id="editNewsSite" placeholder="URL Without www.">
+            <input class='editNewsVal' type="text" name="news_paper[region]" id="editNewsRegion" placeholder="Enter Region">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+          </fieldset>
+        </form>
+        <button class="btn btn-primary" id='newsDelete'>Delete this Widget</button>
+      </div>
+      <section id="editNewsMessage"></section>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal" id="getNewsIdClose">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </body>
+</html>
