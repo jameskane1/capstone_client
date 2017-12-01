@@ -15,7 +15,7 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
-  $('#message').text('Signed in successfully. To get started selected a create button above!')
+  $('#message').text('Signed in successfully. To get started select a create button above!')
   store.user = data.user
   $('#userName').text(store.user.email)
 }
